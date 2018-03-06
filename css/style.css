@@ -1,0 +1,191 @@
+@font-face {
+	font-family: 'Conv_Gotham-Bold';
+	src: url('../fonts/Gotham-Bold.eot');
+	src: local('☺'), 
+	url('../fonts/Gotham-Bold.woff') format('woff'), 
+	url('../fonts/Gotham-Bold.ttf') format('truetype'), 
+	url('../fonts/Gotham-Bold.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Conv_Gotham-Book';
+	src: url('../fonts/Gotham-Book.eot');
+	src: local('☺'), 
+	url('../fonts/Gotham-Book.woff') format('woff'), 
+	url('../fonts/Gotham-Book.ttf') format('truetype'), 
+	url('../fonts/Gotham-Book.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Conv_Gotham-Light';
+	src: url('../fonts/Gotham-Light.eot');
+	src: local('☺'), 
+	url('../fonts/Gotham-Light.woff') format('woff'), 
+	url('../fonts/Gotham-Light.ttf') format('truetype'), 
+	url('../fonts/Gotham-Light.svg') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	
+}
+.h1, .h2, .h3, h1, h2, h3{
+	font-family: 'Conv_Gotham-Bold';
+	margin: 0;
+	color: #f36b22;
+}
+.h1, h1 {font-size: 55px;}
+p{
+	font-family: 'Conv_Gotham-Book';
+	margin: 0;
+	font-size: 24px;
+}
+p strong	{font-family: 'Conv_Gotham-Bold';}
+.navbar-default .navbar-nav>li>a{color: #fff;}
+.navbar-right{
+	margin-top: 25px;
+	background-color: transparent;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: #f36b22;
+    background-color: transparent;
+}
+#main-content, #submit-content{
+	background:  transparent url('../img/bg-body-desktop.jpg') top center no-repeat;
+	/*-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;  */
+	/*height: 776px;*/
+	margin-top: -75px;
+	padding-top: 165px;
+	padding-bottom: 50px;
+	/*padding-top: 100px;*/
+	/*color: #fff;*/
+}
+#submit-content{
+	background:  transparent url('../img/bg-body-submit.jpg') top center no-repeat;
+}
+#main-content a{
+	/*color: #fff;*/
+	font-family: 'Conv_Gotham-Bold';
+	/*text-decoration: underline;*/
+}
+#main-content a:hover{text-decoration: none;}
+.yellow{color: #fedc01;}
+.navbar{margin-bottom: 0;}
+.navbar-default{
+	border: none;
+	background-color: transparent;
+}
+.center{text-align: center;}
+#bank img{margin: 10px 5px;}
+.spec{margin: 40px 0 0;}
+footer{
+	background-color: #222c30;
+	color: #fff;
+	padding: 20px 0;
+}
+footer p {
+    font-family: 'Conv_Gotham-Light';
+    font-size: 11px;
+    margin: 8px 0;
+}
+.damage{
+	background: #e31d1a;
+	text-align: center;
+	color: #fff;
+	padding: 5px;
+}
+.logo-motorola{
+	float: left;
+	margin-top: 20px;
+}
+#operators img{float: left;}
+#operators h3{
+	text-align: center;
+	margin-top: 20px;
+}
+.modal-content{
+	background: #f36b22;
+	color: #fff;
+}
+.modal-header, .modal-footer{
+	border: none;
+	text-align: center;
+}
+.spec-phone{margin-top: 10px;}
+h5{font-weight: bold;}
+.h3, h3 {
+    font-size: 22px;
+}
+.possibilities{
+	margin-top: 20px;
+}
+.patners{margin-left: -35px;}
+.off-store-list{text-align: center;}
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #e31d1a;
+}
+.off-store-list h3{margin: 50px auto 20px !important;}
+.off-store{width: 15%; float: none !important;}
+.blue-bank{color: #5bc0de;}
+.btn{margin-bottom: 10px;}
+.btn-warning {
+    color: #fff;
+    background-color: #f36b22;
+    border-color: #f36b22;
+    padding: 6px 38px;
+}
+.btn-primary{margin-top: 50px;}
+.moto-z-phone{margin-top: 20px;}
+.sosmed-link{
+	position: relative;
+	height: 120px;
+}
+.sosmed-link img{margin: 10px 20px;}
+.sosmed{
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.btn-default {
+    color: #ff6a00;
+    font-weight: bold;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.modal-body{text-align: center;font-weight: bold;}
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+button.upload-photo{
+	background-color: initial;
+	border: none;
+}
+.submit-photo{
+	background:  transparent url('../img/bg-submit-balls.png') 80px 50px no-repeat;
+	height: 800px;
+}
