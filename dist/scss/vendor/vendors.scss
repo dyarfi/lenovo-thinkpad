@@ -1,0 +1,11 @@
+//----------------------------------*\
+// VENDORS IMPORTS
+//----------------------------------*/
+
+
+// Vendors variables
+// ------- ImageHover -------- //
+$output-bourbon-deprecation-warnings: false !default;
+
+@import 'bootstrap/bootstrap.scss';
+@import 'imagehover/scss/imagehover.scss';

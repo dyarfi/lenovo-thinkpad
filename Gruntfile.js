@@ -1,359 +1,334 @@
-/*!
- * FireShell Gruntfile
- * http://getfireshell.com
- * @author Todd Motto
- */
-
 'use strict';
 
-/**
- * Livereload and connect variables
- */
-var LIVERELOAD_PORT = 35729;
-var lrSnippet = require('connect-livereload')({
-  port: LIVERELOAD_PORT
-});
-
-var mountFolder = function(connect, dir) {
-  return require('serve-static')(require('path').resolve(dir));
-};
-
-/**
- * Grunt module
- */
 module.exports = function(grunt) {
+    // Show elapsed time after tasks run
+    require('time-grunt')(grunt);
+    // Load all Grunt tasks
+    require('jit-grunt')(grunt);
 
-  /**
-   * Dynamically load npm tasks
-   */
-  require('load-grunt-tasks')(grunt);
-
-  /**
-   * FireShell Grunt config
-   */
-  grunt.initConfig({
-
-    pkg: grunt.file.readJSON('package.json'),
-
-    /**
-     * Set project info
-     */
-    project: {
-      src: 'src',
-      app: 'app',
-      assets: '<%= project.app %>/assets',
-      css: [
-        '<%= project.src %>/scss/style.scss'
-      ],
-      js: [
-        '<%= project.src %>/js/*.js'
-      ]
-    },
-
-    /**
-     * Project banner
-     * Dynamically prepand to CSS/JS files
-     * Inherits text from package.json
-     */
-    tag: {
-      banner: '/*!\n' +
-        ' * <%= pkg.name %>\n' +
-        ' * <%= pkg.title %>\n' +
-        ' * <%= pkg.url %>\n' +
-        ' * @author <%= pkg.author %>\n' +
-        ' * @version <%= pkg.version %>\n' +
-        ' * Copyright <%= pkg.copyright %>. <%= pkg.license %> licensed.\n' +
-        ' */\n'
-    },
-
-    usebanner: {
-      taskName: {
-        options: {
-          position: 'top',
-          banner: '<%= tag.banner %>',
-          linebreak: true
+    grunt.initConfig({
+        app: {
+            source: 'app',
+            dist: 'dist',
+            baseurl: ''
         },
-        files: {
-          src: ['<%= project.assets %>/css/style.min.css',
-            '<%= project.assets %>/js/scripts.min.js'
-          ]
-        }
-      }
-    },
-
-    /**
-     * Connect port/livereload
-     * https://github.com/gruntjs/grunt-contrib-connect
-     * Starts a local webserver and injects
-     * livereload snippet
-     */
-    connect: {
-      options: {
-        port: 9992,
-        hostname: '*'
-      },
-      livereload: {
-        options: {
-          middleware: function(connect) {
-            return [lrSnippet, mountFolder(connect, 'app')];
-          }
-        }
-      }
-    },
-
-    /**
-     * Clean files and folders
-     * https://github.com/gruntjs/grunt-contrib-clean
-     * Remove generated files for clean deploy
-     */
-    clean: {
-      dist: [
-        '<%= project.assets %>/css/style.unprefixed.css',
-        '<%= project.assets %>/css/style.prefixed.css'
-      ]
-    },
-
-    /**
-     * JSHint
-     * https://github.com/gruntjs/grunt-contrib-jshint
-     * Manage the options inside .jshintrc file
-     */
-    jshint: {
-      files: [
-        'src/js/*.js',
-        'Gruntfile.js'
-      ],
-      options: {
-        jshintrc: '.jshintrc'
-      }
-    },
-
-    /**
-     * Concatenate JavaScript files
-     * https://github.com/gruntjs/grunt-contrib-concat
-     * Imports all .js files and appends project banner
-     */
-    concat: {
-      dev: {
-        files: {
-          '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>'
-        }
-      },
-      options: {
-        stripBanners: true,
-        nonull: true,
-      }
-    },
-
-    /**
-     * Uglify (minify) JavaScript files
-     * https://github.com/gruntjs/grunt-contrib-uglify
-     * Compresses and minifies all JavaScript files into one
-     */
-    uglify: {
-      dist: {
-        files: {
-          '<%= project.assets %>/js/scripts.min.js': '<%= project.js %>'
-        }
-      }
-    },
-
-    /**
-     * Compile Sass/SCSS files
-     * https://github.com/gruntjs/grunt-contrib-sass
-     * Compiles all Sass/SCSS files and appends project banner
-     */
-    sass: {
-      dev: {
-        options: {
-          style: 'expanded'
+        watch: {
+            sass: {
+                files: ['<%= app.source %>/_assets/scss/**/*.{scss,sass}'],
+                tasks: ['sass:server', 'autoprefixer']
+            },
+            scripts: {
+                files: ['<%= app.source %>/_assets/js/**/*.{js}'],
+                tasks: ['uglify']
+            },
+            jekyll: {
+                files: ['<%= app.source %>/**/*.{html,yml,md,mkd,markdown}'],
+                tasks: ['jekyll:server']
+            },
+            images: {
+                files: ['<%= app.source %>/img/**/*.{gif,jpg,jpeg,png,svg,webp}'],
+                tasks: ['copy:server']
+            },
+            livereload: {
+                options: {
+                    livereload: '<%= connect.options.livereload %>'
+                },
+                files: [
+                    '.jekyll/**/*.{html,yml,md,mkd,markdown}',
+                    '.tmp/<%= app.baseurl %>/css/*.css',
+                    '.tmp/<%= app.baseurl %>/js/*.js',
+                    '.tmp/<%= app.baseurl %>/img/**/*.{gif,jpg,jpeg,png,svg,webp}'
+                ]
+            }
         },
-        files: {
-          '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
-        }
-      },
-      dist: {
-        options: {
-          style: 'expanded'
+        connect: {
+            options: {
+                port: 9000,
+                livereload: 35729,
+                // change this to '0.0.0.0' to access the server from outside
+                hostname: 'localhost'
+            },
+            livereload: {
+                options: {
+                    open: {
+                        target: 'http://localhost:9000/<%= app.baseurl %>'
+                    },
+                    base: [
+                        '.jekyll',
+                        '.tmp',
+                        '<%= app.source %>'
+                    ]
+                }
+            },
+            dist: {
+                options: {
+                    open: {
+                        target: 'http://localhost:9000/<%= app.baseurl %>'
+                    },
+                    base: [
+                        '<%= app.dist %>',
+                        '.tmp'
+                    ]
+                }
+            }
         },
-        files: {
-          '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
-        }
-      }
-    },
-
-    /**
-     * Autoprefixer
-     * Adds vendor prefixes automatically
-     * https://github.com/nDmitry/grunt-autoprefixer
-     */
-    autoprefixer: {
-      options: {
-        browsers: [
-          'last 2 version',
-          'safari 6',
-          'ie 9',
-          'opera 12.1',
-          'ios 6',
-          'android 4'
-        ]
-      },
-      dev: {
-        files: {
-          '<%= project.assets %>/css/style.min.css': [
-            '<%= project.assets %>/css/style.unprefixed.css'
-          ]
-        }
-      },
-      dist: {
-        files: {
-          '<%= project.assets %>/css/style.prefixed.css': [
-            '<%= project.assets %>/css/style.unprefixed.css'
-          ]
-        }
-      }
-    },
-
-    /**
-     * CSSMin
-     * CSS minification
-     * https://github.com/gruntjs/grunt-contrib-cssmin
-     */
-    cssmin: {
-      dev: {
-        files: {
-          '<%= project.assets %>/css/style.min.css': [
-            '<%= project.src %>/components/normalize-css/normalize.css',
-            '<%= project.assets %>/css/style.unprefixed.css'
-          ]
-        }
-      },
-      dist: {
-        files: {
-          '<%= project.assets %>/css/style.min.css': [
-            '<%= project.src %>/components/normalize-css/normalize.css',
-            '<%= project.assets %>/css/style.prefixed.css'
-          ]
-        }
-      }
-    },
-
-    /**
-     * Build bower components
-     * https://github.com/yatskevich/grunt-bower-task
-     */
-    bower: {
-      dev: {
-        dest: '<%= project.assets %>/components/'
-      },
-      dist: {
-        dest: '<%= project.assets %>/components/'
-      }
-    },
-
-    copy: {
-      dist: {
-        files: [{
-          expand: true,
-          dot: true,
-          cwd: '<%= project.src %>',
-          dest: '<%= project.assets %>',
-          src: [
-            '*.{ico,txt}',
-            'img/{,*/}*.{jpg,png,webp,gif}',
-            'components/{,*/}*.{css}',
-            'fonts/{,*/}*.*',
-            'css/{,*/}*.*',
-            'bower_components/{,*/}*.*'
-          ]
-        }]
-      }
-    },
-
-    /**
-     * Opens the web server in the browser
-     * https://github.com/jsoverson/grunt-open
-     */
-    open: {
-      server: {
-        path: 'http://localhost:<%= connect.options.port %>'
-      }
-    },
-
-    /**
-     * Runs tasks against changed watched files
-     * https://github.com/gruntjs/grunt-contrib-watch
-     * Watching development files and run concat/compile tasks
-     * Livereload the browser once complete
-     */
-    watch: {
-      concat: {
-        files: '<%= project.src %>/js/{,*/}*.js',
-        tasks: ['concat:dev', 'jshint']
-      },
-      // copy: {
-      //   images: {
-      //     files: [
-      //       {
-      //         expand: true,
-      //         cwd: 'src/img/',
-      //         src: ['**/*.{png,jpg,svg}'],
-      //         dest:'app/assets/img/'
-      //       }
-      //     ]
-      //   }
-      // },
-      sass: {
-        files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev', 'cssmin:dev'/*, 'autoprefixer:dev'*/]
-      },
-      livereload: {
-        options: {
-          livereload: LIVERELOAD_PORT
+        clean: {
+            server: [
+                '.jekyll',
+                '.tmp'
+            ],
+            dist: {
+                files: [{
+                    dot: true,
+                    src: [
+                        '.tmp',
+                        '<%= app.dist %>/*',
+                        '!<%= app.dist %>/.git*'
+                    ]
+                }]
+            }
         },
-        files: [
-          '<%= project.app %>/{,*/}*.html',
-          '<%= project.assets %>/img/{,*/}*.{png,jpg,jpeg,gif,webp}',
-          '<%= project.assets %>/css/*.css',
-          '<%= project.assets %>/js/{,*/}*.js',
-          '<%= project.assets %>/{,*/}*.{png,jpg,jpeg,gif,webp,svg}'
-        ]
-      }
-    }
-  });
+        jekyll: {
+            options: {
+                config: '_config.yml,_config.build.yml',
+                src: '<%= app.source %>'
+            },
+            dist: {
+                options: {
+                    dest: '<%= app.dist %>/<%= app.baseurl %>',
+                }
+            },
+            server: {
+                options: {
+                    config: '_config.yml',
+                    dest: '.jekyll/<%= app.baseurl %>'
+                }
+            }
+        },
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true,
+                    collapseBooleanAttributes: true,
+                    removeAttributeQuotes: true,
+                    removeRedundantAttributes: true,
+                    removeEmptyAttributes: true,
+                    minifyJS: true,
+                    minifyCSS: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= app.dist %>/<%= app.baseurl %>',
+                    src: '**/*.html',
+                    dest: '<%= app.dist %>/<%= app.baseurl %>'
+                }]
+            }
+        },
+        uglify: {
+            server: {
+                options: {
+                    mangle: false,
+                    beautify: true
+                },
+                files: {
+                    '.tmp/<%= app.baseurl %>/js/scripts.js': ['<%= app.source %>/_assets/js/**/*.js']
+                }
+            },
+            dist: {
+                options: {
+                    compress: true,
+                    preserveComments: false,
+                    report: 'min'
+                },
+                files: {
+                    '<%= app.dist %>/<%= app.baseurl %>/js/scripts.js': ['<%= app.source %>/_assets/js/**/*.js']
+                }
+            }
+        },
+        sass: {
+            options: {
+                includePaths: ['bower_components/bootstrap-sass/assets/stylesheets']
+            },
+            server: {
+                options: {
+                    sourceMap: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= app.source %>/_assets/scss',
+                    src: '**/*.{scss,sass}',
+                    dest: '.tmp/<%= app.baseurl %>/css',
+                    ext: '.css'
+                }]
+            },
+            dist: {
+                options: {
+                    outputStyle: 'compressed'
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= app.source %>/_assets/scss',
+                    src: '**/*.{scss,sass}',
+                    dest: '<%= app.dist %>/<%= app.baseurl %>/css',
+                    ext: '.css'
+                }]
+            }
+        },
+        uncss: {
+            options: {
+                htmlroot: '<%= app.dist %>/<%= app.baseurl %>',
+                report: 'gzip'
+            },
+            dist: {
+                src: '<%= app.dist %>/<%= app.baseurl %>/**/*.html',
+                dest: '<%= app.dist %>/<%= app.baseurl %>/css/blog.css'
+            }
+        },
+        autoprefixer: {
+            options: {
+                browsers: ['last 3 versions']
+            },
+            server: {
+                files: [{
+                    expand: true,
+                    cwd: '.tmp/<%= app.baseurl %>/css',
+                    src: '**/*.css',
+                    dest: '.tmp/<%= app.baseurl %>/css'
+                }]
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= app.dist %>/<%= app.baseurl %>/css',
+                    src: '**/*.css',
+                    dest: '<%= app.dist %>/<%= app.baseurl %>/css'
+                }]
+            }
+        },
+        critical: {
+            dist: {
+                options: {
+                    base: './',
+                    css: [
+                        '<%= app.dist %>/<%= app.baseurl %>/css/blog.css'
+                    ],
+                    minify: true,
+                    width: 320,
+                    height: 480
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= app.dist %>/<%= app.baseurl %>',
+                    src: ['**/*.html'],
+                    dest: '<%= app.dist %>/<%= app.baseurl %>'
+                }]
+            }
+        },
+        cssmin: {
+            dist: {
+                options: {
+                    keepSpecialComments: 0,
+                    check: 'gzip'
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= app.dist %>/<%= app.baseurl %>/css',
+                    src: ['*.css'],
+                    dest: '<%= app.dist %>/<%= app.baseurl %>/css'
+                }]
+            }
+        },
+        imagemin: {
+            options: {
+                progressive: true
+            },
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= app.dist %>/<%= app.baseurl %>/img',
+                    src: '**/*.{jpg,jpeg,png,gif}',
+                    dest: '<%= app.dist %>/<%= app.baseurl %>/img'
+                }]
+            }
+        },
+        svgmin: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= app.dist %>/<%= app.baseurl %>/img',
+                    src: '**/*.svg',
+                    dest: '<%= app.dist %>/<%= app.baseurl %>/img'
+                }]
+            }
+        },
+        copy: {
+            server: {
+                files: [{
+                    expand: true,
+                    dot: true,
+                    cwd: '<%= app.source %>',
+                    src: ['img/**/*'],
+                    dest: '.tmp/<%= app.baseurl %>'
+                }]
+            }
+        },
+        buildcontrol: {
+            dist: {
+                options: {
+                    dir: '<%= app.dist %>/<%= app.baseurl %>',
+                    remote: 'git@github.com:user/repo.git',
+                    branch: 'gh-pages',
+                    commit: true,
+                    push: true,
+                    connectCommits: false
+                }
+            }
+        }
+    });
 
-  /**
-   * Default task
-   * Run `grunt` on the command line
-   */
-  grunt.registerTask('default', [
-    'sass:dev',
-    'bower:dev',
-    //'autoprefixer:dev',
-    'cssmin:dev',
-    'jshint',
-    'concat:dev',
-    'usebanner',
-    'connect:livereload',
-    'open',
-    'watch'
-  ]);
+    // Define Tasks
+    grunt.registerTask('serve', function(target) {
+        if (target === 'dist') {
+            return grunt.task.run(['build', 'connect:dist:keepalive']);
+        }
 
-  /**
-   * Build task
-   * Run `grunt build` on the command line
-   * Then compress all JS/CSS files
-   */
-  grunt.registerTask('build', [
-    'sass:dist',
-    'bower:dist',
-    'autoprefixer:dist',
-    'cssmin:dist',
-    'clean:dist',
-    'copy',
-    //'jshint',
-    'uglify',
-    'usebanner'
-  ]);
+        grunt.task.run([
+            'clean:server',
+            'jekyll:server',
+            'sass:server',
+            'autoprefixer:server',
+            'uglify:server',
+            'connect:livereload',
+            'watch'
+        ]);
+    });
 
+    grunt.registerTask('server', function() {
+        grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
+        grunt.task.run(['serve']);
+    });
+
+    grunt.registerTask('build', [
+        'clean:dist',
+        'jekyll:dist',
+        'imagemin',
+        'svgmin',
+        'sass:dist',
+        'uncss',
+        'autoprefixer',
+        'cssmin',
+        'uglify:dist',
+        'critical',
+        'htmlmin'
+    ]);
+
+    grunt.registerTask('deploy', [
+        'build',
+        'buildcontrol'
+    ]);
+
+    grunt.registerTask('default', [
+        'serve'
+    ]);
 };
