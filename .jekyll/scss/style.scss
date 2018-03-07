@@ -361,6 +361,11 @@ $icon-font-path: '../../webfonts/' !default;
 // @import 'modules/_breakpoints.scss';
 // @import 'modules/_print.scss';
 
+
+// #home {
+  // background: url('../img/home-img-1920.jpg') left top no-repeat;
+  // color:$white;
+// }
 body {
   font-family: $font-family-base;
   letter-spacing: 0.1rem;
@@ -368,6 +373,26 @@ body {
 .bg-dark {
   color:$white;
 }
+.home-second {
+  background-color: transparent;
+  background-position:top center;
+  background-repeat:no-repeat;
+  // background-attachment: fixed;
+  // -ms-background-size: cover;
+  // -o-background-size: cover;
+  // -moz-background-size: cover;
+  // -webkit-background-size: cover;
+  // background-size: cover;
+  min-height:400px;
+  .second-content {
+    // position:absolute;
+    // left:0;
+    // top:0;
+    z-index:0;
+    min-height:400px;
+  }
+}
+
 
 //----------------------------------*\
 // VENDOR

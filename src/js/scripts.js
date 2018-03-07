@@ -1,5 +1,11 @@
 var $ = jQuery.noConflict();
 var LENOVO = LENOVO || {};
+var $window = $(window),
+		$body = $('body'),
+    $wrapper = $('#wrapper'),
+    $content = $('#content'),
+		$footer = $('#footer'),
+    windowWidth = $window.width();
 
 (function ($) {
 
@@ -14,7 +20,9 @@ var LENOVO = LENOVO || {};
 
   LENOVO.Initialize = {
     init: function() {
-			LENOVO.Initialize.responsiveClasses();
+      LENOVO.Initialize.responsiveClasses();
+      //LENOVO.Initialize.responsiveSetup();
+      LENOVO.Initialize.bootModal();
 		},
 
 		responsiveClasses: function(){
@@ -28,11 +36,11 @@ var LENOVO = LENOVO || {};
 				{
 					label: 'smallest',
 					enter: 0,
-					exit: 479
+					exit: 575.98
 				},{
 					label: 'handheld',
-					enter: 480,
-					exit: 767
+					enter: 576,
+					exit: 767.98
 				},{
 					label: 'tablet',
 					enter: 768,
@@ -70,7 +78,33 @@ var LENOVO = LENOVO || {};
 					exit: function() { $body.removeClass('device-xxs'); }
 				}
 			]);
-		},
+    },
+
+    responsiveSetup : function () {
+      // var homeSecond = $body.find('section.home-second');
+      // var img = homeSecond.attr('data-mobile-img');
+      // var height = homeSecond.attr('data-mobile-height');
+      // console.log(img);
+      // console.log(height);
+      // $('.device-xs').find('section.home-second').attr('style','background-image:url(img/home-img-second-mobile.jpg);height:400px;');
+    },
+
+    bootModal : function() {
+      $('.btn-video').click(function () {
+        var src = $(this).data('rel');
+        // var title = $(this).html();
+        var content = $(this).find('span.hide').html();
+        $('#BootModal').modal('show');
+        // $('#BootModal .modal-title').html('');
+        // $('#BootModal .modal-title').html(title);
+        $('#BootModal iframe').attr('src', src);
+        $('#BootModal .content').text(content);
+        return false;
+      });
+      $('#BootModal button').click(function () {
+        $('#BootModal iframe').removeAttr('src');
+      });
+    }
   };
 
   LENOVO.documentOnReady = {
@@ -96,13 +130,6 @@ var LENOVO = LENOVO || {};
   LENOVO.documentOnScroll = {
 
   };
-
-  var $window = $(window),
-		$body = $('body'),
-    $wrapper = $('#wrapper'),
-    $content = $('#content'),
-		$footer = $('#footer'),
-		windowWidth = $window.width();
 
   $(document).ready( LENOVO.documentOnReady.init );
   // $window.on( 'resize', LENOVO.documentOnResize.init );

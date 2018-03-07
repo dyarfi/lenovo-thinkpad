@@ -1,3 +1,5 @@
+port: 9022
+
 # Grunt handles images and assets.
 exclude: ['docs','components','img', 'css', 'js', 'fonts',
           '**.png', '**.jpg', '**.jpeg', '**.gif', '**.webp', '**.svg', '**.ico']
