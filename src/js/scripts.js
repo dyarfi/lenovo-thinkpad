@@ -23,6 +23,7 @@ var $window = $(window),
       LENOVO.Initialize.responsiveClasses();
       //LENOVO.Initialize.responsiveSetup();
       LENOVO.Initialize.bootModal();
+      LENOVO.Initialize.scrollDown();
 		},
 
 		responsiveClasses: function(){
@@ -104,6 +105,27 @@ var $window = $(window),
       $('#BootModal button').click(function () {
         $('#BootModal iframe').removeAttr('src');
       });
+      $('#BootModal').on('hide.bs.modal', function (e) {
+        $('#BootModal iframe').removeAttr('src');
+      })
+    },
+
+    scrollDown : function() {
+      $('.scrolldown a[href*=#]').on('click', function(e) {
+        e.preventDefault();
+        $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 1000, 'swing');
+      });
+      // Waypoints Init
+      var waypoints = $('.animated').waypoint({
+        handler: function(direction) {
+          var animate = $(this.element).data('animate');
+          $(this.element).addClass(animate);
+        },
+        offset: function() {
+          return $(this.element).data('offset')
+        }
+      });
+
     }
   };
 
