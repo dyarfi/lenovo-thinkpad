@@ -8,80 +8,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="assets/css/style.min.css" rel="stylesheet">
     <script src="assets/components/modernizr.js"></script>
-    <style>
-
-    .scrolldown a {
-      padding-top: 0px;
-      margin-bottom:2rem;
-    }
-    .scrolldown a span {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      width: 24px;
-      height: 24px;
-      margin-left: -12px;
-      border-left: 2px solid #fff;
-      border-bottom: 2px solid #fff;
-      -webkit-transform: rotate(-45deg);
-      transform: rotate(-45deg);
-      -webkit-animation: sdb05 1.5s infinite;
-      animation: sdb05 1.5s infinite;
-      box-sizing: border-box;
-    }
-    @-webkit-keyframes sdb05 {
-      0% {
-        -webkit-transform: rotate(-45deg) translate(0, 0);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        -webkit-transform: rotate(-45deg) translate(-20px, 20px);
-        opacity: 0;
-      }
-    }
-    @keyframes sdb05 {
-      0% {
-        transform: rotate(-45deg) translate(0, 0);
-        opacity: 0;
-      }
-      50% {
-        opacity: 1;
-      }
-      100% {
-        transform: rotate(-45deg) translate(-20px, 20px);
-        opacity: 0;
-      }
-    }
-
-    </style>
   </head>
   <body>
     <div id="wrapper">
       <section class="container-fluid bg-dark navbar-dark pb-4 d-flex" id="home">
-        <div class="text-center scrolldown hide animated" data-animate="fadeIn" data-offset="120">
-            <a class="text-white font-weight-bold btn btn-default" style="position:absolute;left:0;bottom:25%;right:0;z-index:10;" href="#footer">Scroll Down<span></span></a>
-        </div>
+        <!--div class="text-center d-none d-sm-block scrolldown hide animated" data-animate="fadeIn" data-offset="0">
+          <a class="text-white btn btn-default" style="position:absolute;left:0;bottom:27%;right:0;z-index:10;" href="#footer">Scroll Down<span></span></a>
+        </div-->
         <div class="row">
           <div class="col-12 col-md-6 col-sm-12">
-            <img src="assets/img/home-img-1920.jpg" class="img-fluid hide animated" data-animate="fadeInDown" data-offset="120">
+            <img src="assets/img/home-img-1920.jpg" class="img-fluid hide animated" data-animate="fadeInDown" data-offset="220">
           </div>
           <div class="col-12 col-md-6 col-sm-12 pt-5">
-            <h1 class="hide animated" data-animate="fadeInDown" data-offset="220">
+            <h1 class="hide animated" data-animate="fadeInUp" data-offset="220">
               THINKPAD&reg; <br/>
               PERANGKAT ANDAL UNTUK ANDA YANG TANGGUH &amp; VISIONER.
             </h1>
-            <div class="py-4 hide animated" data-animate="fadeInDown" data-offset="220">
+            <div class="py-4 hide animated" data-animate="fadeInUp" data-offset="240">
                 ThinkPad&reg;, sebuah perangkat yang lebih dari sekedar laptop ini diluncurkan pertama kali tahun 1992. Sejak saat itu ThinkPad&reg; tak pernah berhenti membuat berbagai terobosan baru yang membantu para pemikir, pebisnis dan pekerja visioner untuk mewujudkan impiannya.
             </div>
-            <div class="mb-sm-3 hide animated" data-animate="fadeInUp" data-offset="320">
+            <div class="mb-sm-3 hide animated" data-animate="fadeInUp" data-offset="390">
               <img src="assets/img/thinkpad.png" alt="ThinkPad">
               <span class="d-inline-flex ml-1 ml-0 mt-2 ml-md-0 ml-sm-3 ml-lg-4">Keandalan Membangun Kesuksesan.</span>
             </div>
+            <div class="d-none d-md-block scrolldown hide animated" data-animate="fadeInUp" data-offset="390">
+              <a class="text-white" href="#footer">Scroll Down<span></span></a>
+            </div>
           </div>
-          <div class="col-12 col-sm-6 pt-4 pt-lg-0 hide animated" data-animate="fadeInUp" data-offset="280" style="margin-top:-4rem;">
+          <div class="col-12 col-sm-6 pt-4 pt-lg-0 hide animated" data-animate="fadeInUp" data-offset="400" style="margin-top:-4.25rem;">
             <div class="mt-5 mt-md-5 mt-sm-5 mt-lg-0 clearfix">
               <div class="float-left"><img src="assets/img/i7-core.jpg"></div>
               <div class="col-lg-6 col-sm-12 float-left small pt-2 pt-lg-5 pl-0 pl-lg-2" style="line-height:normal;">
@@ -98,10 +52,10 @@
         <div class="row clearfix">
           <div class="col-md-12">
             <div class="row">
-              <div class="d-none d-sm-none d-md-block hide animated" data-animate="fadeIn" data-offset="140" style="position:absolute">
+              <div class="d-none d-sm-none d-md-block hide animated" data-animate="fadeIn" data-offset="240" style="position:absolute">
                 <img src="assets/img/home-img-second.jpg" class="img-fluid">
               </div>
-              <div class="col-12 col-md-6 col-sm-12 py-4 px-3 order-1 hide animated" data-animate="fadeIn" data-offset="250" style="position:relative;z-index:1;">
+              <div class="col-12 col-md-6 col-sm-12 py-4 px-3 order-1 hide animated" data-animate="fadeInUp" data-offset="250" style="position:relative;z-index:1;">
                   <div class="row-fluid">
                     Tahan di hampir segala kondisi, bekerja bersama ThinkPad&reg; meminimalisir rasa khawatir dan memaksimalkan profesionalitas Anda. Telah lulus uji 12 military-grade dan lebih dari 200 cek kualitas, ThinkPad&reg; bisa bertahan di kadar kelembapan 91-98%, temperatur dari 60° C hingga -20° C, vibrasi tinggi, mechanical and temperature shock, radiasi sinar matahari selama tiga hari dan masih banyak lainnya.
                     <br><br>
@@ -119,15 +73,15 @@
                     </div>
                   </div>
               </div>
-              <div class="col-12 col-md-6 col-sm-12 order-md-1 hide animated" data-animate="fadeIn" data-offset="80" style="position:relative;z-index:1;">
+              <div class="col-12 col-md-6 col-sm-12 order-md-1 hide animated" data-animate="fadeIn" data-offset="220" style="position:relative;z-index:1;">
                 <div class="row">
                   <div class="d-block d-md-none text-center">
-                    <a class="btn-video" style="position:absolute;top:30%;right:0;left:0; bottom:0" href="javascript:;" data-rel="https://www.youtube.com/embed/z_0YhRac2tk?autoplay=1">
+                    <a class="btn-video" style="position:absolute;top:30%;right:0;left:0; bottom:0" href="javascript:;" data-rel="https://www.youtube.com/embed/T1Cz1s7rZfw?autoplay=1">
                       <img src="assets/img/play.png" class="ilist-i"></a>
                     <img src="assets/img/home-img-second-mobile.jpg" class="img-fluid">
                   </div>
                   <div class="d-none d-sm-none d-md-flex d-lg-flex flex-column">
-                    <a class="align-self-stretch btn-video" style="position:absolute;top:25%;right:52%" href="javascript:;" data-rel="https://www.youtube.com/embed/z_0YhRac2tk?autoplay=1"><img src="assets/img/play.png" class="ilist-i"></a>
+                    <a class="align-self-stretch btn-video" style="position:absolute;top:25%;right:52%" href="javascript:;" data-rel="https://www.youtube.com/embed/T1Cz1s7rZfw?autoplay=1"><img src="assets/img/play.png" class="ilist-i"></a>
                   </div>
                 </div>
               </div>
@@ -138,13 +92,13 @@
       <section class="container-fluid bg-dark">
         <div class="row">
           <div class="col-12 col-md-5 col-sm-12 py-4 px-3 order-1">
-            <div class="hide animated" data-animate="fadeInUp" data-offset="350">
+            <div class="hide animated" data-animate="fadeInUp" data-offset="360">
               <img src="assets/img/thinkpad.png" alt="ThinkPad">
             </div>
-            <div class="my-5 hide animated" data-animate="fadeInUp" data-offset="370">
+            <div class="my-5 hide animated" data-animate="fadeInUp" data-offset="360">
                 Dalam rangka memperingati ulang tahun yang ke-25, kami perkenalkan keluarga baru ThinkPad&reg; dengan Windows 10 Pro yang menawarkan fitur-fitur seperti Cortana, Windows Hello, prosesor Intel Core generasi ke-7, Thunderbolt 3 yang secepat kilat, dan layar Quad-HD 14”. Dengan fitur secanggih ini, Anda tak hanya bisa bekerja dengan cepat tapi juga bisa menikmati berbagai hiburan dengan lebih maksimal. Ayo cari tahu lebih lanjut dan berkenalan dengan para anggota keluarga ThinkPad&reg;!
             </div>
-            <div class="clearfix hide animated" data-animate="fadeInUp" data-offset="390">
+            <div class="clearfix hide animated" data-animate="fadeInUp" data-offset="480">
                 <div class="float-left"><img src="assets/img/i7-core.jpg"></div>
                 <div class="col-lg-7 col-sm-12 float-left small pt-2 pt-lg-5 pl-0 pl-lg-2" style="line-height:normal;">
                   Powered by 8th Generation<br>
@@ -159,21 +113,28 @@
             <div class="d-flex justify-content-center" style="margin-top:-3rem;">
               <div class="col-lg mx-auto mt-lg-0 mt-sm-3 mt-5 pb-3">
                 <div class="row">
-                  <div class="col-12 col-sm-4 col-lg-4 pb-2">
+                  <!--div class="col-12 col-sm-4 col-lg-4 pb-2">
                     <div class="text-center">
                       <h5 class="p-0">XI Tablet</h5>
                       <a href="detail.html" class="btn btn-outline-light text-uppercase" role="button">More Info</a>
                     </div>
-                  </div>
-                  <div class="col-12 col-sm-4 col-lg-4 pb-2">
+                  </div-->
+                  <!--div class="col-12 col-sm-4 col-lg-4 pb-2">
                     <div class="text-center clearfix">
                       <h5 class="p-0">XI Carbon</h5>
                       <a href="detail.html" class="btn btn-outline-light text-uppercase" role="button">More Info</a>
                     </div>
-                  </div>
-                  <div class="col-12 col-sm-4 col-lg-4 pb-2">
+                  </div-->
+                  <!--div class="col-12 col-sm-4 col-lg-4 pb-2">
                     <div class="text-center">
                       <h5 class="p-0">XI Yoga</h5>
+                      <a href="detail.html" class="btn btn-outline-light text-uppercase" role="button">More Info</a>
+                    </div>
+                  </div-->
+                  <div class="col-12 col-sm-12 col-lg-12 pb-2">
+                    <div class="text-center clearfix">
+                      <!-- <h5 class="p-0">XI Carbon</h5> -->
+                      <!-- <h5 class="p-0">XI Carbon</h5>                       -->
                       <a href="detail.html" class="btn btn-outline-light text-uppercase" role="button">More Info</a>
                     </div>
                   </div>
@@ -213,7 +174,7 @@
                             <button class="btn btn-outline-light text-uppercase" role="button">More Info</button>
                           </div>
                         </p>
-                    </figcaption><a href="detail.html"></a>
+                    </figcaption><a href="offline.html"></a>
                   </figure>
                 </div>
               </div>
@@ -233,7 +194,7 @@
                             <button class="btn btn-outline-light text-uppercase" role="button">More Info</button>
                           </div>
                         </p>
-                    </figcaption><a href="detail.html"></a>
+                    </figcaption><a href="distributor.html"></a>
                   </figure>
                 </div>
               </div>
@@ -252,7 +213,7 @@
                             <button class="btn btn-outline-light text-uppercase" role="button">More Info</button>
                           </div>
                         </p>
-                    </figcaption><a href="detail.html"></a>
+                    </figcaption><a href="business.html"></a>
                   </figure>
                 </div>
               </div>
@@ -281,12 +242,11 @@
         </div>
       </div>
     </div>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="assets/components/dist/jquery.js"><\/script>');</script>
     <script src="assets/components/bootstrap/js/bootstrap.js"></script>
     <script src="assets/components/jRespond/js/jRespond.js"></script>
     <script src="assets/components/waypoints/jquery.waypoints.min.js"></script>
     <script src="assets/js/scripts.min.js"></script>
-
   </body>
 </html>

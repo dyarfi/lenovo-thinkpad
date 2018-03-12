@@ -35,7 +35,8 @@
 // $body-bg
 
 // Colors
-$blue:    #007bff !default;
+// $blue:    #007bff !default;
+$blue: #1976a1 !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
@@ -377,6 +378,13 @@ body {
 .bg-dark {
   color:$white;
 }
+.table.table-dark {
+  background: transparent;
+}
+.bg-white-thinkpad {
+  color:#484848;
+  background-color:#efefef
+}
 // Utilities -- :start
 // Filter for Grayscale
 .ilist {
@@ -429,6 +437,21 @@ body {
 .hide {
   opacity:0
 }
+.img-holder {
+  background:#cccccc;
+  height: 200px;
+  padding-top:40px;
+  min-width: 210px;
+  display: block;
+}
+// Bootstrap ovverides
+.business-section {
+  .btn:not(:disabled):not(.disabled) {
+    background:none;
+    border-color:rgba($danger,0.3);
+  }
+}
+
 //----------------------------------*\
 // VENDOR
 //----------------------------------*/
@@ -3773,9 +3796,123 @@ body {
 }
 
 
+/*!
+* ----- Scroll Down Animation
+*/
+.scrolldown {
+  margin-top:2rem;
+}
+.scrolldown a {
+  padding-top: 0px;
+  // margin-top:2rem;
+  &:hover {
+    text-decoration:none;
+  }
+}
+.scrolldown a span {
+  position: absolute;
+  bottom: 0%;
+  // left: 9%;
+  width: 22px;
+  height: 22px;
+  margin-left: -65px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  -webkit-animation: sdb05 1.5s infinite;
+  animation: sdb05 1.5s infinite;
+  box-sizing: border-box;
+}
+.head-map-marker {
+  background:url('../img/map-marker.png') left bottom no-repeat;
+  letter-spacing: normal;
+  text-transform:uppercase;
+  padding-left:50px;
+  padding-bottom:2.4rem;
+  padding-top:.72rem;
+  margin-bottom:0;
+}
+.card-title, .card-content {
+  letter-spacing: normal
+}
+#business {
+  background:url('../img/bg-business-1920.jpg') top center no-repeat;
+  padding-top:14rem;
+}
+#offline {
+  background:url('../img/bg-offline.jpg') top center no-repeat;
+  padding-top:3rem;
+}
+#distributor {
+  background:url('../img/bg-distributor.jpg') top center no-repeat;
+  padding-top:6rem;
+}
+#wrapper .card.bg-dark {
+  background-color: transparent;
+}
+@-webkit-keyframes sdb05 {
+  0% {
+    -webkit-transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: rotate(-45deg) translate(-18px, 18px);
+    opacity: 0;
+  }
+}
+@keyframes sdb05 {
+  0% {
+    transform: rotate(-45deg) translate(0, 0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: rotate(-45deg) translate(-18px, 18px);
+    opacity: 0;
+  }
+}
+
 // @import 'vendor/_external.scss';
 @import 'vendor/vendors.scss';
-
+// Owl Carousel
+.main-carousel.owl-carousel .owl-item img {
+  width:auto;
+  display:inline;
+}
+.main-carousel.owl-carousel .owl-dots {
+  counter-reset: dots;
+  position:absolute;
+  top:10%;
+  right:0%;
+  .owl-dot span:before {
+    counter-increment:dots;
+    content: counter(dots);
+  }
+}
+.main-carousel.owl-carousel.owl-theme .owl-dots {
+    .owl-dot span {
+      width: 28px;
+      height: 28px;
+      padding: 3px 0 0 1px;
+      color: $white;
+      background: rgba($danger,1);
+      border:1px solid rgba(#ec342c,0.9);
+      &:hover {
+        background: rgba(#ec342c,0.5);
+      }
+    }
+    .owl-dot.active span {
+      color: $danger;
+      background: rgba(#ec342c,0);
+      border:1px solid rgba(#ec342c,1);
+    }
+}
 // ----- IMAGEHOVER VARIABLES -----//
 /*!
  * Green Background for Image Hover
@@ -3802,3 +3939,22 @@ body {
   background: rgba($black,0.5);
   }
 }
+
+/*!
+* Media Query
+*/
+// There are also media queries and mixins for targeting a single segment of screen sizes using the minimum and maximum breakpoint widths.
+// ---- ONLY
+@include media-breakpoint-only(xs) {
+  .main-carousel.owl-carousel {
+    .owl-dots  {
+      top: 19.2%;
+      right: 0%;
+      left: 0;
+    }
+  }
+}
+@include media-breakpoint-only(sm) { }
+@include media-breakpoint-only(md) { }
+@include media-breakpoint-only(lg) { }
+@include media-breakpoint-only(xl) { }

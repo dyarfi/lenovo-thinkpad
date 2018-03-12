@@ -24,6 +24,7 @@ var $window = $(window),
       //LENOVO.Initialize.responsiveSetup();
       LENOVO.Initialize.bootModal();
       LENOVO.Initialize.scrollDown();
+      LENOVO.Initialize.owlCarousel();
 		},
 
 		responsiveClasses: function(){
@@ -107,7 +108,7 @@ var $window = $(window),
       });
       $('#BootModal').on('hide.bs.modal', function (e) {
         $('#BootModal iframe').removeAttr('src');
-      })
+      });
     },
 
     scrollDown : function() {
@@ -116,16 +117,96 @@ var $window = $(window),
         $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 1000, 'swing');
       });
       // Waypoints Init
-      var waypoints = $('.animated').waypoint({
-        handler: function(direction) {
-          var animate = $(this.element).data('animate');
-          $(this.element).addClass(animate);
-        },
-        offset: function() {
-          return $(this.element).data('offset')
-        }
-      });
+      if (typeof $.fn.waypoint !== 'undefined') {
+        var waypoints = $('.animated').waypoint({
+          handler: function(direction) {
+            var animate = $(this.element).data('animate');
+            $(this.element).addClass(animate);
+          },
+          offset: function() {
+            return $(this.element).data('offset')
+          }
+        });
 
+        var scrolldown = $('.scrolldown').waypoint({
+          handler: function(direction) {
+            var animate = $(this.element).data('animate');
+            //$(this.element).addClass(animate);
+            if (direction === 'down') {
+              $(this.element).fadeOut();
+            }
+            else {
+              $(this.element).fadeIn();
+            }
+          },
+          offset: '-50%',
+          context: '#home'
+        })
+      }
+
+    },
+
+    owlCarousel : function () {
+      // owlCarousel Init
+      if (typeof $.fn.owlCarousel !== 'undefined') {
+        var owl = $('.main-carousel').owlCarousel({
+        animateOut:'fadeOut',
+        animateIn:'fadeIn',
+        items:1,
+        //dotsEach:1,
+        // dotData:function(evt) {
+          // return evt.item.index;
+        // },
+        dotData:1,
+        dotsEach:1,
+        // dotsContainer:"btn btn-danger rounded-circle",
+        autoplay:false,
+        loop:1,
+        margin:30,
+        mouseDrag:false,
+        touchDrag:false,
+        pullDrag:false,
+        //nav:true,
+        //navText:['<span class="text-dark">&laquo; Prev</span>','<span class="text-dark">Next &raquo;</span>'],
+        // responsive:false,
+        // responsiveClass:false,
+        // lazyLoad:true,
+        stagePadding:0//,
+        //smartSpeed:450
+        });
+
+        owl.on('changed.owl.carousel', function(event) {
+        var obj = event.target;
+        // Item
+        var item = $(obj).find('.owl-caption');
+        // Item Head
+        var itemHead = item.find('h1,h2,h3,h4');
+        // Item Content
+        var itemContent = item.find('p');
+        // Current Owl slide item
+        item.eq(event.item.index)
+        .removeClass('d-none')
+        .addClass('animated fadeIn');
+        // Current Owl slide Heading
+        itemHead.eq(event.item.index)
+        .removeClass('d-none')
+        .addClass('animated fadeInDown');
+        // Current Owl slide Content
+        itemContent.eq(event.item.index)
+        .removeClass('d-none')
+        .addClass('animated fadeInUp');
+        });
+        owl.on('change.owl.carousel', function(event) {
+        var obj = event.target;
+        // Item
+        var item = $(obj).find('.owl-caption').addClass('d-none');
+        // Item Head
+        var itemHead = item.find('.owl-caption > h1,h2,h3,h4').addClass('d-none');
+        // Item Content
+        var itemContent = item.find('.owl-caption > p').addClass('d-none');
+        });
+
+      }
     }
   };
 
