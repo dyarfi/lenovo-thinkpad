@@ -3879,7 +3879,31 @@ body {
 }
 
 // @import 'vendor/_external.scss';
+//! ------ import vendors scss ------ //
 @import 'vendor/vendors.scss';
+
+// Content bottom left
+.bottom-left-content {
+  position:absolute;bottom:2%;left:4%
+}
+// Button video play
+.btn-video {
+  position:absolute;top:30%;right:0;left:0; bottom:0;
+}
+.btn-video-mobile {
+  position:absolute;top:25%;right:52%;
+}
+// Line height normal
+.lh-normal {
+  line-height:normal;
+}
+.mt-min-3 {
+  margin-top:-3rem;
+}
+.mt-min-425{
+  margin-top:-4.25rem;
+}
+
 // Owl Carousel
 .main-carousel.owl-carousel .owl-item img {
   width:auto;
@@ -3913,32 +3937,43 @@ body {
       border:1px solid rgba(#ec342c,1);
     }
 }
+
 // ----- IMAGEHOVER VARIABLES -----//
+/*! Default Setting for ImageHover */
+[class^='imghvr-'], [class*=' imghvr-'] {
+  a {
+    position: relative;
+  }
+}
+
+
 /*!
  * Green Background for Image Hover
  */
- [class^='green imghvr-'],[class*='green imghvr-']  {
+ [class^='green imghvr-'], [class*='green imghvr-']  {
   background-color: $green;
   figcaption {
-      background-color: rgba($green,0.5);
+    background-color: rgba($green,0.5);
   }
   &:after, &:before {
-  background: rgba($green,0.5);
+    background: rgba($green,0.5);
   }
 }
+
 
 /*!
 * Grey Background for Image Hover
 */
-[class^='gray imghvr-'],[class*='gray imghvr-']  {
+[class^='gray imghvr-'], [class*='gray imghvr-']  {
   background-color: $black;
   figcaption {
-      background-color: rgba($black,0.5);
+    background-color: rgba($black,0.5);
   }
   &:after, &:before {
-  background: rgba($black,0.5);
+    background: rgba($black,0.5);
   }
 }
+
 
 /*!
 * Media Query

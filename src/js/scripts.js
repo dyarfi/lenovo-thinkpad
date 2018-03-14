@@ -92,7 +92,7 @@ var $window = $(window),
     },
 
     bootModal : function() {
-      $('.btn-video').click(function () {
+      $('.btn-play-video').click(function () {
         var src = $(this).data('rel');
         // var title = $(this).html();
         var content = $(this).find('span.hide').html();
@@ -121,11 +121,13 @@ var $window = $(window),
         var waypoints = $('.animated').waypoint({
           handler: function(direction) {
             var animate = $(this.element).data('animate');
+            //var handler = $(this.element).data('context');
             $(this.element).addClass(animate);
           },
           offset: function() {
             return $(this.element).data('offset')
-          }
+          },
+          context: $(this.element).data('context')
         });
 
         var scrolldown = $('.scrolldown').waypoint({
@@ -139,8 +141,7 @@ var $window = $(window),
               $(this.element).fadeIn();
             }
           },
-          offset: '-50%',
-          context: '#home'
+          offset: '-50%'
         })
       }
 

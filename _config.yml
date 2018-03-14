@@ -8,7 +8,7 @@ exclude: ['docs','components','img', 'css', 'js', 'fonts',
 future: true
 show_drafts: true
 
-source: src
+source: app
 destination: dist
 
 permalink: '/blog/:title'
