@@ -445,13 +445,16 @@ body {
   display: block;
 }
 // Bootstrap ovverides
-.business-section {
+.business-section, .offline-section {
   .btn:not(:disabled):not(.disabled) {
     background:none;
     border-color:rgba($danger,0.3);
   }
+  button.btn:not(:disabled):not(.disabled) {
+    background:$danger;
+    border-color:rgba($danger,0.3);
+  }
 }
-
 //----------------------------------*\
 // VENDOR
 //----------------------------------*/
@@ -3801,9 +3804,12 @@ body {
 */
 .scrolldown {
   margin-top:2rem;
+  position:absolute;
+  bottom: -7%;
 }
 .scrolldown a {
   padding-top: 0px;
+  font-size: 0.7rem;
   // margin-top:2rem;
   &:hover {
     text-decoration:none;
@@ -3815,7 +3821,7 @@ body {
   // left: 9%;
   width: 22px;
   height: 22px;
-  margin-left: -65px;
+  margin-left: -52px;
   border-left: 2px solid #fff;
   border-bottom: 2px solid #fff;
   -webkit-transform: rotate(-45deg);
@@ -3860,7 +3866,7 @@ body {
     opacity: 1;
   }
   100% {
-    -webkit-transform: rotate(-45deg) translate(-18px, 18px);
+    -webkit-transform: rotate(-45deg) translate(-17px, 17px);
     opacity: 0;
   }
 }
@@ -3903,7 +3909,21 @@ body {
 .mt-min-425{
   margin-top:-4.25rem;
 }
-
+.button-middle-bottom {
+  position:absolute;
+  top:40%;
+  left:0%;
+  right:0%;
+  bottom:0%;
+  z-index:1;
+  width:100%;
+  height:100%;
+  text-align:center;
+  button {
+    background:rgba($black,0.20);
+    // font-weight: $font-weight-bold;
+  }
+}
 // Owl Carousel
 .main-carousel.owl-carousel .owl-item img {
   width:auto;
@@ -3943,6 +3963,12 @@ body {
 [class^='imghvr-'], [class*=' imghvr-'] {
   a {
     position: relative;
+  }
+}
+// Custom tag handler
+[class^='imghvr-']:hover, [class*=' imghvr-']:hover {
+  .button-middle-bottom > button {
+    opacity: 0;
   }
 }
 
