@@ -375,6 +375,10 @@ body {
   max-width: 1280px;
   margin:0 auto;
 }
+.image-bottom {
+  height:100%;
+  width:100%;
+}
 .bg-dark {
   color:$white;
 }
@@ -454,6 +458,10 @@ body {
     background:$danger;
     border-color:rgba($danger,0.3);
   }
+}
+.table-responsive {
+  // -ms-overflow-style:auto;
+  -ms-overflow-style: auto !important;
 }
 //----------------------------------*\
 // VENDOR
@@ -3916,13 +3924,12 @@ body {
   right:0%;
   bottom:0%;
   z-index:1;
-  width:100%;
-  height:100%;
+  // width:100%;
+  // height:100%;
   text-align:center;
-  button {
-    background:rgba($black,0.20);
-    // font-weight: $font-weight-bold;
-  }
+  // .btn-outline-light {
+    // background-color:rgba($black,0.2);
+  // }
 }
 // Owl Carousel
 .main-carousel.owl-carousel .owl-item img {

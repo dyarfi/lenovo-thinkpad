@@ -21,7 +21,6 @@ var $window = $(window),
   LENOVO.Initialize = {
     init: function() {
       LENOVO.Initialize.responsiveClasses();
-      //LENOVO.Initialize.responsiveSetup();
       LENOVO.Initialize.bootModal();
       LENOVO.Initialize.scrollDown();
       LENOVO.Initialize.owlCarousel();

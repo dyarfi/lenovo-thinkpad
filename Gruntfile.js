@@ -190,9 +190,11 @@ module.exports = function(grunt) {
     autoprefixer: {
       options: {
         browsers: [
-          'last 2 version',
+          'last 3 version',
           'safari 6',
           'ie 9',
+          'ie 10',
+          'ie >= 11',
           'opera 12.1',
           'ios 6',
           'android 4'
