@@ -24,6 +24,7 @@ var $window = $(window),
       LENOVO.Initialize.bootModal();
       LENOVO.Initialize.scrollDown();
       LENOVO.Initialize.owlCarousel();
+      LENOVO.Initialize.userAgents();
 		},
 
 		responsiveClasses: function(){
@@ -207,7 +208,26 @@ var $window = $(window),
         });
 
       }
+    },
+
+    userAgents : function () {
+      var nua = navigator.userAgent;
+      //$('#test-nua').html(nua);
+      var isSafariWin = (nua.indexOf('Mozilla/5.0') > -1 && nua.indexOf('AppleWebKit') > -1 && nua.indexOf('Safari') > -1 && nua.indexOf('Windows') > -1);
+      //$('#test-nua').html(safari_windows);
+      if(isSafariWin) {
+        //$('.handler-box-home').css({'width':'100% !important','height':'300px !important'});
+        $('html,body').css({'overflow-x':'hidden'});
+        //$('#home').css({'width':'1280px'});
+        $('.image-bottom').removeClass('image-bottom').addClass('img-fluid');
+        //$('html,body').find('.img-fluid').removeClass('img-fluid');
+        //$('.handler-box-home').removeClass('col-12 col-sm-12 col-md-6 col-lg-6').css({'display':'block !important','clear':'both !important'});
+        //$('#handler-box-home').css({'width':'300px !important','float':'left !important'});
+        //$('#handler-box-home').addClass('d-block');
+      }
+      console.log(isSafariWin);
     }
+
   };
 
   LENOVO.documentOnReady = {

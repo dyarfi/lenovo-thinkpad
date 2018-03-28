@@ -3811,9 +3811,9 @@ body {
 * ----- Scroll Down Animation
 */
 .scrolldown {
-  margin-top:2rem;
-  position:absolute;
-  bottom: -7%;
+  margin-top:1rem;
+  // position:absolute;
+  // bottom: 0%;
 }
 .scrolldown a {
   padding-top: 0px;
@@ -3825,7 +3825,7 @@ body {
 }
 .scrolldown a span {
   position: absolute;
-  bottom: 0%;
+  // bottom: 0%;
   // left: 9%;
   width: 22px;
   height: 22px;
@@ -3851,15 +3851,19 @@ body {
   letter-spacing: normal
 }
 #business {
-  background:url('../img/bg-business-1920.jpg') top center no-repeat;
+  background:url('../img/bg-business-1920.jpg') top center repeat-x;
   padding-top:14rem;
 }
 #offline {
-  background:url('../img/bg-offline.jpg') top center no-repeat;
+  background:url('../img/bg-offline.jpg') top center repeat-x;
   padding-top:3rem;
 }
 #distributor {
-  background:url('../img/bg-distributor.jpg') top center no-repeat;
+  background:url('../img/bg-distributor.jpg') top center repeat-x;
+  padding-top:6rem;
+}
+#thankyou {
+  background:url('../img/bg-business-1920.jpg') top center repeat-x;
   padding-top:6rem;
 }
 #wrapper .card.bg-dark {
@@ -3898,14 +3902,21 @@ body {
 
 // Content bottom left
 .bottom-left-content {
-  position:absolute;bottom:2%;left:4%
+  position:absolute;bottom:3%;left:4.5%
 }
 // Button video play
 .btn-video {
-  position:absolute;top:30%;right:0;left:0; bottom:0;
+  position: absolute;
+  right: -18rem;
+  margin-top: 5rem;
+  margin-left: 13rem;
 }
 .btn-video-mobile {
-  position:absolute;top:25%;right:52%;
+  position: absolute;
+  top: 20%;
+  right: 0;
+  left: 20%;
+  bottom: 0%;
 }
 // Line height normal
 .lh-normal {
@@ -3916,6 +3927,9 @@ body {
 }
 .mt-min-425{
   margin-top:-4.25rem;
+}
+.top-min-2 {
+  top:-2rem;
 }
 .button-middle-bottom {
   position:absolute;
@@ -4022,7 +4036,13 @@ body {
     }
   }
 }
-@include media-breakpoint-only(sm) { }
-@include media-breakpoint-only(md) { }
+@include media-breakpoint-only(sm) {}
+@include media-breakpoint-only(md) {
+  .btn-video {
+    position: absolute;
+    top: 10%;
+    left: 34%;
+  }
+}
 @include media-breakpoint-only(lg) { }
 @include media-breakpoint-only(xl) { }

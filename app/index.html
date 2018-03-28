@@ -8,34 +8,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="assets/css/style.min.css" rel="stylesheet">
     <script src="assets/components/modernizr.js"></script>
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
   </head>
   <body>
     <div id="wrapper">
       <section class="container-fluid bg-dark navbar-dark pb-4" id="home">
         <div class="row">
-          <div class="col-12 col-md-6 col-sm-12">
-            <img src="assets/img/home-img-1920.jpg" alt="Lenovo ThinkPad" class="img-fluid hide animated" data-animate="fadeInDown" data-offset="220" data-context="#home">
+          <div class="col-12 col-sm-12 col-md-6">
+            <img src="assets/img/home-img-1920.jpg" alt="Lenovo ThinkPad" class="img-fluid hide animated" data-animate="fadeInDown" data-offset="220">
+            <div class="col-lg-12 col-sm-12 mt-5 mt-md-5 mt-sm-5 mt-lg-0 top-min-2 position-relative hide animated" data-animate="fadeIn" data-offset="350">
+              <div class="float-left"><img src="assets/img/i7-core.jpg" alt="i7 Intel"></div>
+              <div class="col-lg-7 col-sm-12 float-left small pt-2 pt-lg-5 pl-0 pl-lg-2 lh-normal">
+                Powered by 8th Generation<br>
+                Intel&reg; Core&trade; i7 Processor.<br>
+                Intel Inside&reg;.<br>
+                Extraordinary Performance Outside.
+              </div>
+            </div>
           </div>
-          <div class="col-12 col-md-6 col-sm-12 pt-5">
+          <div class="col-12 col-sm-12 col-md-6 pt-5">
             <h1 class="hide animated text-uppercase" data-animate="fadeInUp" data-offset="220">
               THINKPAD&reg; <br/>
               Perangkat Andal dan Terpercaya untuk Bisnis.
             </h1>
             <div class="py-4 hide animated" data-animate="fadeInUp" data-offset="240">
-                <!-- ThinkPad&reg;, sebuah perangkat yang lebih dari sekedar laptop ini diluncurkan pertama kali tahun 1992. Sejak saat itu ThinkPad&reg; tak pernah berhenti membuat berbagai terobosan baru yang membantu para pemikir, pebisnis dan pekerja visioner untuk mewujudkan impiannya. -->
-                <!-- Mewujudkan ambisi tak hanya membutuhkan komitmen, tapi juga perangkat yang punya kapabilitas untuk diandalkan. Ketangguhan perangkat Anda akan memaksimalkan kinerja dan juga meminimalisir hambatan dalam mewujudkan ide-ide bisnis.<br><br> -->
                 Mewujudkan sukses tak hanya membutuhkan komitmen, tapi juga perangkat yang selalu bisa diandalkan. Ketangguhan perangkat Anda akan memaksimalkan kinerja dan juga meminimalisir hambatan dalam mewujudkan ide-ide bisnis. Thinkpad telah dipercaya pebisnis selama 25 tahun.<br><br>
             </div>
             <div class="mb-sm-3 hide animated" data-animate="fadeInUp" data-offset="390">
               <img src="assets/img/thinkpad.png" alt="ThinkPad">
               <span class="d-inline-flex ml-1 ml-0 mt-2 ml-md-0 ml-sm-3 ml-lg-3">Keandalan Membangun Kesuksesan.</span>
             </div>
-            <div class="d-none d-md-block scrolldown hide animated" data-animate="fadeInUp" data-offset="390">
+            <div class="d-none d-md-block float-left scrolldown hide animated" data-animate="fadeIn" data-offset="390">
               <a class="text-white" href="#footer">Scroll Down<span></span></a>
             </div>
           </div>
-          <div class="col-12 col-sm-6 pt-4 pt-lg-0 mt-min-425 hide animated" data-animate="fadeInUp" data-offset="400">
-            <div class="mt-5 mt-md-5 mt-sm-5 mt-lg-0 clearfix">
+          <!--div id="handler-box-home" class="col-12 col-sm-12 col-md-6 pt-4 pt-lg-0 mt-min-425 hide animated" data-animate="fadeInUp" data-offset="400">
+            <div class="mt-5 mt-md-5 mt-sm-5 mt-lg-0">
               <div class="float-left"><img src="assets/img/i7-core.jpg" alt="i7 Intel"></div>
               <div class="col-lg-6 col-sm-12 float-left small pt-2 pt-lg-5 pl-0 pl-lg-2 lh-normal">
                 Powered by 8th Generation<br>
@@ -44,50 +55,55 @@
                 Extraordinary Performance Outside.
               </div>
             </div>
-          </div>
+          </div-->
         </div>
       </section>
-      <section class="container-fluid bg-dark navbar-dark home-second">
-        <div class="row clearfix">
-          <div class="col-md-12">
-            <div class="row">
-              <div class="d-none d-sm-none d-md-block position-absolute hide animated" data-animate="fadeIn" data-offset="250">
-                <img src="assets/img/home-img-second.jpg" width="100%" class="img-fluid" alt="Lenovo Performance">
+      <section class="container-fluid bg-dark navbar-dark home-second hide animated" data-animate="fadeIn" data-offset="390" id="home-second">
+        <div class="row">
+            <div class="d-none d-sm-none d-md-block position-absolute hide animated" data-animate="fadeIn" data-offset="390">
+              <div class="row-fluid float-left">
+                  <img src="assets/img/home-img-second.jpg" class="img-fluid w-100 mw-100" alt="Lenovo Performance">
               </div>
-              <div class="col-12 col-md-6 col-sm-12 position-relative py-5 px-3 order-1 hide animated" data-animate="fadeInUp" data-offset="250">
-                  <div class="row-fluid">
-                    <!-- Tahan di hampir segala kondisi, bekerja bersama ThinkPad&reg; meminimalisir rasa khawatir dan memaksimalkan profesionalitas Anda. Telah lulus uji 12 military-grade dan lebih dari 200 cek kualitas, ThinkPad&reg; bisa bertahan di kadar kelembapan 91-98%, temperatur dari 60° C hingga -20° C, vibrasi tinggi, mechanical and temperature shock, radiasi sinar matahari selama tiga hari dan masih banyak lainnya. -->
-                    ThinkPad&reg;, uji ketahanan dan keandalan yang meminimalisir kekhawatiran serta memaksimalkan kenyamanan Anda. Lihat bagaimana ThinkPad lulus uji military grade, mulai dari spill resistant hingga temperature resistant.
-                    <br><br>
-                    Untuk mencari tahu ketangguhan sesungguhnya yang dimiliki oleh ThinkPad&reg;, lihat video berikut.
-                    <div class="clearfix">
-                      <div class="my-5">
-                          <div class="float-left"><img src="assets/img/i7-core.jpg" class="img-fluid" alt="i7 Intel"></div>
-                          <div class="col-lg-6 col-sm-12 float-left small pt-2 pt-lg-5 pl-0 pl-lg-2 lh-normal">
-                            Powered by 8th Generation<br>
-                            Intel&reg; Core&trade; i7 Processor.<br>
-                            Intel Inside&reg;.<br>
-                            Extraordinary Performance Outside.
-                          </div>
-                      </div>
+            </div>
+            <div class="col-12 col-md-6 col-sm-12 py-5 px-3 order-1">
+                <div class="row-fluid">
+                  ThinkPad&reg;, uji ketahanan dan keandalan yang meminimalisir kekhawatiran serta memaksimalkan kenyamanan Anda. Lihat bagaimana ThinkPad lulus uji military grade, mulai dari spill resistant hingga temperature resistant.
+                  <br><br>
+                  Untuk mencari tahu ketangguhan sesungguhnya yang dimiliki oleh ThinkPad&reg;, lihat video berikut.
+                  <div class="clearfix">
+                    <div class="my-5">
+                        <div class="float-left"><img src="assets/img/i7-core.jpg" class="img-fluid" alt="i7 Intel"></div>
+                        <div class="col-lg-6 col-sm-12 float-left small pt-2 pt-lg-5 pl-0 pl-lg-2 lh-normal">
+                          Powered by 8th Generation<br>
+                          Intel&reg; Core&trade; i7 Processor.<br>
+                          Intel Inside&reg;.<br>
+                          Extraordinary Performance Outside.
+                        </div>
                     </div>
                   </div>
-              </div>
-              <div class="col-12 col-md-6 col-sm-12 position-relative order-md-1 hide animated" data-animate="fadeIn" data-offset="220">
-                <div class="row">
-                  <div class="d-block d-md-none text-center">
-                    <a class="btn-video btn-play-video" href="javascript:;" data-rel="https://www.youtube.com/embed/5I0RtEx_2lA?autoplay=1">
-                      <img src="assets/img/play.png" class="ilist-i" alt="Play Video"></a>
-                    <img src="assets/img/home-img-second-mobile.jpg" width="100%" alt="Lenovo Performance" class="img-fluid">
+                </div>
+            </div>
+            <div class="position-relative col-12 col-md-6 col-sm-12 order-md-1">
+              <div class="row">
+                <div class="d-block d-md-none text-center">
+                  <div class="align-self-center">
+                    <a class="btn-video-mobile btn-play-video" href="javascript:;" data-rel="https://www.youtube.com/embed/5I0RtEx_2lA?autoplay=1">
+                      <img src="assets/img/play.png" class="ilist-i" alt="Play Video Mobile">
+                    </a>
                   </div>
-                  <div class="d-none d-sm-none d-md-flex d-lg-flex flex-column">
-                    <a class="align-self-stretch btn-video-mobile btn-play-video" href="javascript:;" data-rel="https://www.youtube.com/embed/5I0RtEx_2lA?autoplay=1">
-                      <img src="assets/img/play.png" class="ilist-i" alt="Play Video Mobile"></a>
+                  <img src="assets/img/home-img-second-mobile.jpg" alt="Lenovo Performance" class="img-fluid">
+                </div>
+                <div class="d-none d-sm-none d-md-flex d-lg-flex flex-column position-relative">
+                  <div class="container">
+                    <div class="col-md-12">
+                      <a class="btn-video btn-play-video" href="javascript:;" data-rel="https://www.youtube.com/embed/5I0RtEx_2lA?autoplay=1">
+                        <img src="assets/img/play.png" class="ilist-i" alt="Play Video">
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
         </div>
       </section>
       <section class="container-fluid bg-dark">
@@ -97,12 +113,11 @@
               <img src="assets/img/thinkpad.png" alt="ThinkPad">
             </div>
             <div class="my-4 pb-5 hide animated" data-animate="fadeInUp" data-offset="360">
-                <!-- Dalam rangka memperingati ulang tahun yang ke-25, kami perkenalkan keluarga baru ThinkPad&reg; dengan Windows 10 Pro yang menawarkan fitur-fitur seperti Cortana, Windows Hello, prosesor Intel Core generasi ke-7, Thunderbolt 3 yang secepat kilat, dan layar Quad-HD 14&quot;. Dengan fitur secanggih ini, Anda tak hanya bisa bekerja dengan cepat tapi juga bisa menikmati berbagai hiburan dengan lebih maksimal. Ayo cari tahu lebih lanjut dan berkenalan dengan para anggota keluarga ThinkPad&reg;! -->
                 Laptop Lenovo ThinkPad generasi 2018 dibangun dengan teknologi mutakhir &amp; dibalut dalam elemen yang agresif namun halus. The choice is yours: which Lenovo is right for you?
             </div>
             <div class="clearfix hide animated mt-5 pt-5" data-animate="fadeInUp" data-offset="480">
                 <div class="float-left"><img src="assets/img/i7-core.jpg" alt="i7 Intel"></div>
-                <div class="col-lg-7 col-sm-12 float-left small pt-2 pt-lg-5 pl-0 pl-lg-2 lh-normal">
+                <div class="col-lg-8 col-sm-12 float-left small pt-2 pt-lg-5 pl-0 pl-lg-2 lh-normal">
                   Powered by 8th Generation<br>
                   Intel&reg; Core&trade; i7 Processor.<br>
                   Intel Inside&reg;.<br>
@@ -127,48 +142,36 @@
         </div>
       </section>
       <section id="footer" class="container-fluid bg-dark">
-        <div class="row m-0 p-0">
-            <div class="col-md px-0 px-sm-0 pr-lg-2 hide animated" data-animate="fadeInUp" data-offset="580" data-context="#footer">
-                <div class="mx-auto">
-                  <div class="row">
-                    <img src="assets/img/bottom-1.jpg" class="image-bottom" alt="Lenovo Performance">
-                    <div class="row m-0 p-0">
-                      <div class="button-middle-bottom">
-                          <a href="offline.html" class="btn btn-outline-light text-uppercase" role="button">Toko Ritel<br>ThinkPad&reg;</a>
-                      </div>
-                    </div>
-                    <div class="bottom-left-content">
-                      <div class="small">
-                        <div class="float-left"><img src="assets/img/i7-core.jpg" class="img-fluid" alt="i7 Intel"></div>
-                        <div class="col-lg-7 col-sm-12 float-left small pt-2 pt-lg-5 pl-0 pl-lg-2 lh-normal">
-                          Powered by 8th Generation<br>
-                          Intel&reg; Core&trade; i7 Processor.<br>
-                          Intel Inside&reg;.<br>
-                          Extraordinary Performance Outside.
-                        </div>
-                      </div>
-                    </div>
+        <div class="row">
+            <div class="col-md px-0 text-center hide animated" data-animate="fadeInUp" data-offset="580">
+                <img src="assets/img/bottom-1.jpg" class="img-fluid" alt="Lenovo Performance">
+                <div class="row m-0 p-0">
+                  <div class="button-middle-bottom">
+                      <a href="offline.html" class="btn btn-outline-light text-uppercase" role="button">Toko Ritel<br>ThinkPad&reg;</a>
+                  </div>
                 </div>
+                <div class="bottom-left-content">
+                  <div class="small text-left pl-0 pl-lg-0 pl-md-0 pl-sm-4">
+                    <div class="float-left"><img src="assets/img/i7-core.jpg" class="img-fluid" alt="i7 Intel"></div>
+                    <div class="col-lg-7 col-sm-12 float-left small pt-2 pt-lg-5 pl-0 pl-lg-2 lh-normal">
+                      Powered by 8th Generation<br>
+                      Intel&reg; Core&trade; i7 Processor.<br>
+                      Intel Inside&reg;.<br>
+                      Extraordinary Performance Outside.
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md px-0 text-center hide animated" data-animate="fadeInUp" data-offset="640">
+              <img src="assets/img/bottom-2.jpg" class="img-fluid" alt="Lenovo Performance">
+              <div class="button-middle-bottom">
+                  <a href="distributor.html" class="btn btn-outline-light text-uppercase" role="button">Beli ThinkPad&reg;<br>Online</a>
               </div>
             </div>
-            <div class="col-md px-0 px-sm-0 px-lg-0 hide animated" data-animate="fadeInUp" data-offset="640" data-context="#footer">
-                <div class="mx-auto">
-                    <div class="row">
-                      <img src="assets/img/bottom-2.jpg" class="image-bottom" alt="Lenovo Performance">
-                      <div class="button-middle-bottom">
-                          <a href="distributor.html" class="btn btn-outline-light text-uppercase" role="button">Beli ThinkPad&reg;<br>Online</a>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md px-0 px-sm-0 pl-lg-2 hide animated" data-animate="fadeInUp" data-offset="680" data-context="#footer">
-                <div class="mx-auto">
-                    <div class="row">
-                      <img src="assets/img/bottom-3.jpg" class="image-bottom" alt="Lenovo Performance">
-                      <div class="button-middle-bottom">
-                          <a href="business.html" class="btn btn-outline-light text-uppercase" role="button">Pembelian<br>Korporat</a>
-                      </div>
-                    </div>
+            <div class="col-md px-0 text-center hide animated" data-animate="fadeInUp" data-offset="680">
+                <img src="assets/img/bottom-3.jpg" class="img-fluid" alt="Lenovo Performance">
+                <div class="button-middle-bottom">
+                    <a href="business.html" class="btn btn-outline-light text-uppercase" role="button">Pembelian<br>Korporat</a>
                 </div>
             </div>
         </div>
