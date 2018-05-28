@@ -3900,6 +3900,37 @@ body {
 //! ------ import vendors scss ------ //
 @import 'vendor/vendors.scss';
 
+// Blockquote
+blockquote {
+	// color: $white;
+	position: relative;
+	&:before,
+	&:after {
+		position: absolute;
+		top: 0;
+		line-height: 1;
+		font-size: 70px;
+		// font-style: normal;
+		font-weight: bold;
+		font-family: Tahoma, Courier, sans-serif;
+		color: #ec342c;
+	}
+	&:before {
+		// content: "\f347";
+		content: "\"";
+		left: 0;
+		// font-family: ionicons;
+	}
+	&:after {
+		// content: "\f347";
+		content: "\"";
+		right: 0;
+		top:7rem;
+		-ms-transform: rotate(180deg);
+		-webkit-transform: rotate(180deg);
+		transform: rotate(180deg);
+	}
+}
 // Content bottom left
 .bottom-left-content {
   position:absolute;bottom:3%;left:4.5%

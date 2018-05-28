@@ -331,11 +331,11 @@ module.exports = function(grunt) {
   grunt.registerTask('default', [
     'sass:dev',
     'bower:dev',
-    'autoprefixer:dev',
-    'cssmin:dev',
-    'jshint',
+    // 'autoprefixer:dev',
+    // 'cssmin:dev',
+    //'jshint',
     'concat:dev',
-    'usebanner',
+    // 'usebanner',
     'connect:livereload',
     'open',
     'watch'
