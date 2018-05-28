@@ -430,13 +430,13 @@ body {
 .ilist-c {
   -webkit-filter: none;
   filter: none;
-}
-.ilist-c:hover {
-  -webkit-filter: contrast(1.5);
-  filter: contrast(1.5);
   transition: all 0.30s ease-in;
   -webkit-transition: all 0.30s ease-in;
   -moz-transition: all 0.30s ease-in;
+}
+.ilist-c:hover {
+  -webkit-filter: contrast(1.2);
+  filter: contrast(1.2);
 }
 .hide {
   opacity:0
@@ -3912,7 +3912,7 @@ blockquote {
 		font-size: 70px;
 		// font-style: normal;
 		font-weight: bold;
-		font-family: Tahoma, Courier, sans-serif;
+		font-family: Arial, 'Times New Roman', Tahoma, Courier, sans-serif;
 		color: #ec342c;
 	}
 	&:before {
