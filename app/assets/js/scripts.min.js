@@ -241,15 +241,17 @@ var $window = $(window),
 		window.sr = ScrollReveal();
 
 		// Customizing a reveal set
-		sr.reveal('#home', { duration: 800, useDelay: 'always', delay: 120, origin: 'top', reset: true, distance : "-20px"});
-		sr.reveal('#home-second', { duration: 1000, useDelay: 'always', delay: 140, origin: 'bottom', reset: true, distance : "-60px"});
+		sr.reveal('#home', { duration: 800, useDelay: 'always', delay: 120, origin: 'top', reset: false, distance : "-20px"});
+		sr.reveal('#home-second', { duration: 1000, useDelay: 'always', delay: 140, origin: 'bottom', reset: false, distance : "-60px"});
 
-		sr.reveal('#boxed-one', { duration: 1200, delay: 600, origin: 'bottom', reset: true});
-		sr.reveal('#boxed-two', { duration: 1500, delay: 700, origin: 'bottom', reset: true});
-		sr.reveal('#boxed-three', { duration: 1800, delay: 800, origin: 'bottom', reset: true});
+		sr.reveal('#boxed-one', { duration: 1200, delay: 700, origin: 'bottom', reset: false});
+		sr.reveal('#boxed-two', { duration: 1400, delay: 700, origin: 'bottom', reset: false});
+		sr.reveal('#boxed-three', { duration: 1600, delay: 700, origin: 'bottom', reset: false});
 
-		// sr.reveal('#home-third', { duration: 1000, useDelay: 'always', delay: 320, origin: 'top', reset: true, distance : "-120px"});
-		sr.reveal('#footer', { duration: 1000, useDelay: 'always', delay: 420, origin: 'bottom', reset: true, distance : "-160px"});
+		sr.reveal('#home-third', { duration: 1000, useDelay: 'always', delay: 320, origin: 'top', reset: false, distance : "-120px"});
+		sr.reveal('#footer', { duration: 1000, useDelay: 'always', delay: 420, origin: 'bottom', reset: false, distance : "-160px"});
+
+		sr.reveal('#trademark', { duration: 1600, delay: 700, origin: 'bottom', reset: false});
 
 	  }
 

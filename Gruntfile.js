@@ -3,8 +3,11 @@
  * http://getfireshell.com
  * @author Todd Motto
  */
+process.traceDeprecation = false;
+process.noDeprecation = true;
 
 'use strict';
+
 
 /**
  * Livereload and connect variables

@@ -3920,6 +3920,9 @@ blockquote {
 		content: "\"";
 		left: 0;
 		// font-family: ionicons;
+		@include media-breakpoint-between(xs,sm) {
+			top:-2rem;
+		}
 	}
 	&:after {
 		// content: "\f347";
@@ -3929,6 +3932,9 @@ blockquote {
 		-ms-transform: rotate(180deg);
 		-webkit-transform: rotate(180deg);
 		transform: rotate(180deg);
+		@include media-breakpoint-between(xs,sm) {
+			top:13rem
+		}
 	}
 }
 // Content bottom left
