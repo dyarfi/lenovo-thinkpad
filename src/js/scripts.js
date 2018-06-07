@@ -21,9 +21,10 @@ var $window = $(window),
   LENOVO.Initialize = {
     init: function() {
       LENOVO.Initialize.responsiveClasses();
-      LENOVO.Initialize.bootModal();
-      LENOVO.Initialize.scrollDown();
-      LENOVO.Initialize.owlCarousel();
+	  LENOVO.Initialize.bootModal();
+	  LENOVO.Initialize.scrollReveal();
+      //LENOVO.Initialize.scrollDown();
+      //LENOVO.Initialize.owlCarousel();
       LENOVO.Initialize.userAgents();
 		},
 
@@ -147,68 +148,68 @@ var $window = $(window),
 
     },
 
-    owlCarousel : function () {
-      // owlCarousel Init
-      if (typeof $.fn.owlCarousel !== 'undefined') {
-        var owl = $('.main-carousel').owlCarousel({
-        animateOut:'fadeOut',
-        animateIn:'fadeIn',
-        items:1,
-        //dotsEach:1,
-        // dotData:function(evt) {
-          // return evt.item.index;
-        // },
-        dotData:1,
-        dotsEach:1,
-        // dotsContainer:"btn btn-danger rounded-circle",
-        autoplay:false,
-        loop:1,
-        margin:30,
-        mouseDrag:false,
-        touchDrag:false,
-        pullDrag:false,
-        //nav:true,
-        //navText:['<span class="text-dark">&laquo; Prev</span>','<span class="text-dark">Next &raquo;</span>'],
-        // responsive:false,
-        // responsiveClass:false,
-        // lazyLoad:true,
-        stagePadding:0//,
-        //smartSpeed:450
-        });
+    // owlCarousel : function () {
+    //   // owlCarousel Init
+    //   if (typeof $.fn.owlCarousel !== 'undefined') {
+    //     var owl = $('.main-carousel').owlCarousel({
+    //     animateOut:'fadeOut',
+    //     animateIn:'fadeIn',
+    //     items:1,
+    //     //dotsEach:1,
+    //     // dotData:function(evt) {
+    //       // return evt.item.index;
+    //     // },
+    //     dotData:1,
+    //     dotsEach:1,
+    //     // dotsContainer:"btn btn-danger rounded-circle",
+    //     autoplay:false,
+    //     loop:1,
+    //     margin:30,
+    //     mouseDrag:false,
+    //     touchDrag:false,
+    //     pullDrag:false,
+    //     //nav:true,
+    //     //navText:['<span class="text-dark">&laquo; Prev</span>','<span class="text-dark">Next &raquo;</span>'],
+    //     // responsive:false,
+    //     // responsiveClass:false,
+    //     // lazyLoad:true,
+    //     stagePadding:0//,
+    //     //smartSpeed:450
+    //     });
 
-        owl.on('changed.owl.carousel', function(event) {
-        var obj = event.target;
-        // Item
-        var item = $(obj).find('.owl-caption');
-        // Item Head
-        var itemHead = item.find('h1,h2,h3,h4');
-        // Item Content
-        var itemContent = item.find('p');
-        // Current Owl slide item
-        item.eq(event.item.index)
-        .removeClass('d-none')
-        .addClass('animated fadeIn');
-        // Current Owl slide Heading
-        itemHead.eq(event.item.index)
-        .removeClass('d-none')
-        .addClass('animated fadeInDown');
-        // Current Owl slide Content
-        itemContent.eq(event.item.index)
-        .removeClass('d-none')
-        .addClass('animated fadeInUp');
-        });
-        owl.on('change.owl.carousel', function(event) {
-        var obj = event.target;
-        // Item
-        var item = $(obj).find('.owl-caption').addClass('d-none');
-        // Item Head
-        var itemHead = item.find('.owl-caption > h1,h2,h3,h4').addClass('d-none');
-        // Item Content
-        var itemContent = item.find('.owl-caption > p').addClass('d-none');
-        });
+    //     owl.on('changed.owl.carousel', function(event) {
+    //     var obj = event.target;
+    //     // Item
+    //     var item = $(obj).find('.owl-caption');
+    //     // Item Head
+    //     var itemHead = item.find('h1,h2,h3,h4');
+    //     // Item Content
+    //     var itemContent = item.find('p');
+    //     // Current Owl slide item
+    //     item.eq(event.item.index)
+    //     .removeClass('d-none')
+    //     .addClass('animated fadeIn');
+    //     // Current Owl slide Heading
+    //     itemHead.eq(event.item.index)
+    //     .removeClass('d-none')
+    //     .addClass('animated fadeInDown');
+    //     // Current Owl slide Content
+    //     itemContent.eq(event.item.index)
+    //     .removeClass('d-none')
+    //     .addClass('animated fadeInUp');
+    //     });
+    //     owl.on('change.owl.carousel', function(event) {
+    //     var obj = event.target;
+    //     // Item
+    //     var item = $(obj).find('.owl-caption').addClass('d-none');
+    //     // Item Head
+    //     var itemHead = item.find('.owl-caption > h1,h2,h3,h4').addClass('d-none');
+    //     // Item Content
+    //     var itemContent = item.find('.owl-caption > p').addClass('d-none');
+    //     });
 
-      }
-    },
+    //   }
+    // },
 
     userAgents : function () {
       var nua = navigator.userAgent;
@@ -225,8 +226,32 @@ var $window = $(window),
         //$('#handler-box-home').css({'width':'300px !important','float':'left !important'});
         //$('#handler-box-home').addClass('d-block');
       }
-      console.log(isSafariWin);
-    }
+      // console.log(isSafariWin);
+	},
+
+	scrollReveal : function () {
+		var config = {
+			viewFactor : 0.15,
+			duration   : 800,
+			distance   : "20px",
+			scale      : 0.8,
+			reset	   : false,
+		  }
+		// Changing the defaults
+		window.sr = ScrollReveal();
+
+		// Customizing a reveal set
+		sr.reveal('#home', { duration: 800, useDelay: 'always', delay: 120, origin: 'top', reset: true, distance : "-20px"});
+		sr.reveal('#home-second', { duration: 1000, useDelay: 'always', delay: 140, origin: 'bottom', reset: true, distance : "-60px"});
+
+		sr.reveal('#boxed-one', { duration: 1200, delay: 600, origin: 'bottom', reset: true});
+		sr.reveal('#boxed-two', { duration: 1500, delay: 700, origin: 'bottom', reset: true});
+		sr.reveal('#boxed-three', { duration: 1800, delay: 800, origin: 'bottom', reset: true});
+
+		// sr.reveal('#home-third', { duration: 1000, useDelay: 'always', delay: 320, origin: 'top', reset: true, distance : "-120px"});
+		sr.reveal('#footer', { duration: 1000, useDelay: 'always', delay: 420, origin: 'bottom', reset: true, distance : "-160px"});
+
+	  }
 
   };
 
