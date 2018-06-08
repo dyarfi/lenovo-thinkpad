@@ -26,7 +26,7 @@ body {
 }
 
 #wrapper {
-  max-width: 1280px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -3022,7 +3022,7 @@ body {
 * ----- Scroll Down Animation
 */
 .scrolldown {
-  margin-top: 1rem;
+  margin-top: 0rem;
 }
 
 .scrolldown a {
@@ -3095,7 +3095,7 @@ body {
     opacity: 1;
   }
   100% {
-    -webkit-transform: rotate(-45deg) translate(-17px, 17px);
+    -webkit-transform: rotate(-45deg) translate(-14px, 14px);
     opacity: 0;
   }
 }
@@ -3109,8 +3109,8 @@ body {
     opacity: 1;
   }
   100% {
-    -webkit-transform: rotate(-45deg) translate(-18px, 18px);
-            transform: rotate(-45deg) translate(-18px, 18px);
+    -webkit-transform: rotate(-45deg) translate(-15px, 15px);
+            transform: rotate(-45deg) translate(-15px, 15px);
     opacity: 0;
   }
 }
@@ -13627,37 +13627,50 @@ blockquote:before, blockquote:after {
   top: 0;
   line-height: 1;
   font-size: 70px;
-  font-weight: bold;
-  font-family: Arial, 'Times New Roman', Tahoma, Courier, sans-serif;
-  color: #ec342c;
+  content: " ";
+  width: 35px;
+  height: 24px;
+  background: url("../img/quote.png") left top no-repeat;
+  background-color: transparent;
 }
 blockquote:before {
-  content: "\"";
   left: 0;
 }
 @media (max-width: 767.98px) {
   blockquote:before {
-    top: -2rem;
+    top: -1rem;
   }
 }
 blockquote:after {
-  content: "\"";
   right: 0;
-  top: 7rem;
+  top: 12rem;
   -ms-transform: rotate(180deg);
   -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 @media (max-width: 767.98px) {
   blockquote:after {
-    top: 13rem;
+    top: 16.5rem;
   }
+}
+blockquote .blockquote-footer {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .bottom-left-content {
   position: absolute;
   bottom: 3%;
   left: 4.5%;
+}
+
+.highlight .media {
+  padding-left: 0;
+  padding-right: 0;
+}
+.highlight .text-small {
+  letter-spacing: normal;
+  font-size: .65rem;
 }
 
 .btn-video {
@@ -13691,6 +13704,10 @@ blockquote:after {
   top: -2rem;
 }
 
+.top-min-5 {
+  top: -5.5rem;
+}
+
 .button-middle-bottom {
   position: absolute;
   top: 40%;
@@ -13701,8 +13718,37 @@ blockquote:after {
   text-align: center;
 }
 
+.main-carousel.owl-carousel .owl-nav {
+  position: relative;
+}
+.main-carousel.owl-carousel .owl-nav .owl-prev, .main-carousel.owl-carousel .owl-nav .owl-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 15%;
+  color: #fff;
+  text-align: center;
+  opacity: 0.5;
+  border: 1px solid #1976a1;
+}
+.main-carousel.owl-carousel .owl-nav .owl-prev {
+  left: 0;
+}
+.main-carousel.owl-carousel .owl-nav .owl-next {
+  right: 0;
+}
+
 .main-carousel.owl-carousel .owl-item img {
-  width: auto;
+  width: unset;
   display: inline;
 }
 

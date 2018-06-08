@@ -23,8 +23,8 @@ var $window = $(window),
       LENOVO.Initialize.responsiveClasses();
 	  LENOVO.Initialize.bootModal();
 	  LENOVO.Initialize.scrollReveal();
-      //LENOVO.Initialize.scrollDown();
-      //LENOVO.Initialize.owlCarousel();
+      LENOVO.Initialize.scrollDown();
+      LENOVO.Initialize.owlCarousel();
       LENOVO.Initialize.userAgents();
 		},
 
@@ -116,7 +116,8 @@ var $window = $(window),
       $('.scrolldown a[href*=#]').on('click', function(e) {
         e.preventDefault();
         $('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 1000, 'swing');
-      });
+	  });
+	  /*
       // Waypoints Init
       if (typeof $.fn.waypoint !== 'undefined') {
         var waypoints = $('.animated').waypoint({
@@ -145,71 +146,86 @@ var $window = $(window),
           offset: '-50%'
         })
       }
-
+	  */
     },
 
-    // owlCarousel : function () {
-    //   // owlCarousel Init
-    //   if (typeof $.fn.owlCarousel !== 'undefined') {
-    //     var owl = $('.main-carousel').owlCarousel({
-    //     animateOut:'fadeOut',
-    //     animateIn:'fadeIn',
-    //     items:1,
-    //     //dotsEach:1,
-    //     // dotData:function(evt) {
-    //       // return evt.item.index;
-    //     // },
-    //     dotData:1,
-    //     dotsEach:1,
-    //     // dotsContainer:"btn btn-danger rounded-circle",
-    //     autoplay:false,
-    //     loop:1,
-    //     margin:30,
-    //     mouseDrag:false,
-    //     touchDrag:false,
-    //     pullDrag:false,
-    //     //nav:true,
-    //     //navText:['<span class="text-dark">&laquo; Prev</span>','<span class="text-dark">Next &raquo;</span>'],
-    //     // responsive:false,
-    //     // responsiveClass:false,
-    //     // lazyLoad:true,
-    //     stagePadding:0//,
-    //     //smartSpeed:450
-    //     });
+    owlCarousel : function () {
+      // owlCarousel Init
+      if (typeof $.fn.owlCarousel !== 'undefined') {
+        // var owl = $('.main-carousel').owlCarousel({
+        // animateOut:'fadeOut',
+        // animateIn:'fadeIn',
+        // items:1,
+        // //dotsEach:1,
+        // // dotData:function(evt) {
+        //   // return evt.item.index;
+        // // },
+        // dotData:1,
+        // dotsEach:1,
+        // // dotsContainer:"btn btn-danger rounded-circle",
+        // autoplay:false,
+        // loop:1,
+        // margin:30,
+        // mouseDrag:false,
+        // touchDrag:false,
+        // pullDrag:false,
+        // //nav:true,
+        // //navText:['<span class="text-dark">&laquo; Prev</span>','<span class="text-dark">Next &raquo;</span>'],
+        // // responsive:false,
+        // // responsiveClass:false,
+        // // lazyLoad:true,
+        // stagePadding:0//,
+        // //smartSpeed:450
+        // });
 
-    //     owl.on('changed.owl.carousel', function(event) {
-    //     var obj = event.target;
-    //     // Item
-    //     var item = $(obj).find('.owl-caption');
-    //     // Item Head
-    //     var itemHead = item.find('h1,h2,h3,h4');
-    //     // Item Content
-    //     var itemContent = item.find('p');
-    //     // Current Owl slide item
-    //     item.eq(event.item.index)
-    //     .removeClass('d-none')
-    //     .addClass('animated fadeIn');
-    //     // Current Owl slide Heading
-    //     itemHead.eq(event.item.index)
-    //     .removeClass('d-none')
-    //     .addClass('animated fadeInDown');
-    //     // Current Owl slide Content
-    //     itemContent.eq(event.item.index)
-    //     .removeClass('d-none')
-    //     .addClass('animated fadeInUp');
-    //     });
-    //     owl.on('change.owl.carousel', function(event) {
-    //     var obj = event.target;
-    //     // Item
-    //     var item = $(obj).find('.owl-caption').addClass('d-none');
-    //     // Item Head
-    //     var itemHead = item.find('.owl-caption > h1,h2,h3,h4').addClass('d-none');
-    //     // Item Content
-    //     var itemContent = item.find('.owl-caption > p').addClass('d-none');
-    //     });
-
-    //   }
-    // },
+        // owl.on('changed.owl.carousel', function(event) {
+        // var obj = event.target;
+        // // Item
+        // var item = $(obj).find('.owl-caption');
+        // // Item Head
+        // var itemHead = item.find('h1,h2,h3,h4');
+        // // Item Content
+        // var itemContent = item.find('p');
+        // // Current Owl slide item
+        // item.eq(event.item.index)
+        // .removeClass('d-none')
+        // .addClass('animated fadeIn');
+        // // Current Owl slide Heading
+        // itemHead.eq(event.item.index)
+        // .removeClass('d-none')
+        // .addClass('animated fadeInDown');
+        // // Current Owl slide Content
+        // itemContent.eq(event.item.index)
+        // .removeClass('d-none')
+        // .addClass('animated fadeInUp');
+        // });
+        // owl.on('change.owl.carousel', function(event) {
+        // var obj = event.target;
+        // // Item
+        // var item = $(obj).find('.owl-caption').addClass('d-none');
+        // // Item Head
+        // var itemHead = item.find('.owl-caption > h1,h2,h3,h4').addClass('d-none');
+        // // Item Content
+        // var itemContent = item.find('.owl-caption > p').addClass('d-none');
+        // });
+		var owl = $('.main-carousel').owlCarousel({
+			animateOut:'fadeOut',
+			animateIn:'fadeIn',
+			items:1,
+			autoplay:1,
+			loop:1,
+			margin:0,
+			// center:true,
+			autoHeight:true,
+			dots:false,
+			// nav:true,
+			navText:['<a href="javascript:;"><span class="carousel-control-prev-icon" aria-hidden="true">&nbsp;</span></a>','<a href="javascript:;"><span class="carousel-control-next-icon" aria-hidden="true">&nbsp;</span></a>'],
+			// lazyLoad:true,
+			stagePadding:0,
+			smartSpeed:450
+		});
+      }
+    },
 
     userAgents : function () {
       var nua = navigator.userAgent;
@@ -242,16 +258,18 @@ var $window = $(window),
 
 		// Customizing a reveal set
 		sr.reveal('#home', { duration: 800, useDelay: 'always', delay: 120, origin: 'top', reset: false, distance : "-20px"});
-		sr.reveal('#home-second', { duration: 1000, useDelay: 'always', delay: 140, origin: 'bottom', reset: false, distance : "-60px"});
+		// sr.reveal('#home-second', { duration: 1000, useDelay: 'always', delay: 140, origin: 'bottom', reset: false, distance : "-60px"});
 
-		sr.reveal('#boxed-one', { duration: 1200, delay: 700, origin: 'bottom', reset: false});
-		sr.reveal('#boxed-two', { duration: 1400, delay: 700, origin: 'bottom', reset: false});
-		sr.reveal('#boxed-three', { duration: 1600, delay: 700, origin: 'bottom', reset: false});
+		sr.reveal('#boxed-one', { duration: 1200, delay: 300, origin: 'top', reset: false});
+		sr.reveal('#boxed-two', { duration: 1400, delay: 600, origin: 'top', reset: false});
+		sr.reveal('#boxed-three', { duration: 1600, delay: 900, origin: 'top', reset: false});
 
-		sr.reveal('#home-third', { duration: 1000, useDelay: 'always', delay: 320, origin: 'top', reset: false, distance : "-120px"});
-		sr.reveal('#footer', { duration: 1000, useDelay: 'always', delay: 420, origin: 'bottom', reset: false, distance : "-160px"});
+		// sr.reveal('#home-third', { duration: 1000, useDelay: 'always', delay: 320, origin: 'top', reset: false, distance : "-120px"});
+		sr.reveal('#home-fourth', { duration: 1100, useDelay: 'always', delay: 380, origin: 'top', reset: false, distance : "-160px"});
 
-		sr.reveal('#trademark', { duration: 1600, delay: 700, origin: 'bottom', reset: false});
+		sr.reveal('#footer', { duration: 1000, useDelay: 'always', delay: 300, origin: 'bottom', reset: false, distance : "-160px"});
+
+		sr.reveal('#trademark', { duration: 1400, delay: 300, origin: 'bottom', reset: false});
 
 	  }
 
