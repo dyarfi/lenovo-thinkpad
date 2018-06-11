@@ -40,7 +40,7 @@ $blue: #1976a1 !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
-$red:     #dc3545 !default;
+$red:     #eb1309 !default;
 $orange:  #fd7e14 !default;
 $yellow:  #ffc107 !default;
 $green:   #28a745 !default;
@@ -3930,12 +3930,27 @@ blockquote {
 		-webkit-transform: rotate(180deg);
 		transform: rotate(180deg);
 		@include media-breakpoint-between(xs,sm) {
-			top:16.5rem
+			top:9.35rem
+		}
+	}
+	p {
+		@include media-breakpoint-between(xs,sm) {
+			font-size: .85rem;
+			line-height: 1.4;
 		}
 	}
 	.blockquote-footer {
+		&:before {
+			content: "\2013 \00A0";
+			background:$danger;
+			margin-right: .4rem;
+		}
 		margin-top:1rem;
 		margin-bottom:1rem;
+		@include media-breakpoint-between(xs,sm) {
+			margin-top:.75rem;
+			margin-bottom:.75rem;
+		}
 	}
 }
 // Content bottom left
@@ -3999,6 +4014,8 @@ blockquote {
 }
 // Owl Carousel
 .main-carousel.owl-carousel {
+	// margin-left:0;
+	// margin-right:0;
 	.owl-nav {
 		position: relative;
 		.owl-prev, .owl-next {
@@ -4020,6 +4037,16 @@ blockquote {
 		.owl-next {
 			right:0;
 		}
+	}
+}
+.headline-big__mobile {
+	@include media-breakpoint-between(xs,sm) {
+		font-size: 1rem
+	}
+}
+.headlineh1-big__mobile {
+	@include media-breakpoint-between(xs,sm) {
+		font-size: 1.75rem
 	}
 }
 .main-carousel.owl-carousel .owl-item img {
@@ -4068,8 +4095,77 @@ blockquote {
     opacity: 0;
   }
 }
+.middle-holder {
+	@include media-breakpoint-between(sm,md) {
+		height:500px
+	}
+}
+.benny-kol {
+	// background: url("../img/kol-home-slider-benny.jpg") top center;
+	// background-color: transparent;
+    // background-position:center center;
+    // background-repeat:no-repeat;
+    // background-attachment: fixed;
+	// -ms-background-size: cover;
+    // -o-background-size: cover;
+    // -moz-background-size: cover;
+    // -webkit-background-size: cover;
+	// background-size: cover;
+	a.btn-play-video {
+		left: 50%;
+		top: 45%;
+		position: absolute;
+		@include media-breakpoint-between(xs,sm) {
+			left: 40%;
+			top: 20%;
+		}
+		@include media-breakpoint-only(md) {
+			// left: 40%;
+			top: 18%;
+		}
+	}
+	.benny-kol__boxed_one, .benny-kol__boxed_two {
+		@include media-breakpoint-between(xs,sm) {
+			font-size: 0.80rem;
+			line-height: 1.2;
+		}
+	}
+	.benny-kol__boxed_one {
+		padding:35px;
+		@include media-breakpoint-between(xs,sm) {
+			padding:15px;
+			margin-top:.5rem;
+			// margin-left:.5rem;
+		}
+	}
+	.benny-kol__boxed_two {
+		// height: 100%;
+		@include media-breakpoint-between(xs,sm) {
+			height: 255px;
+		}
+	}
+}
+.home-img__holder {
+	// img {
+	// 	// height: 480px;
+	// }
+	// @include media-breakpoint-only(xs) {
+	// }
 
-
+	.home-img__mobile {
+		background:url('../img/kol-home-slider-benny-mb.jpg');
+		background-color: transparent;
+		background-position:center center;
+		background-repeat:no-repeat;
+		-ms-background-size: cover;
+		-o-background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		background-size: cover;
+		height:600px;
+		width:100%
+	}
+}
 /*!
  * Green Background for Image Hover
  */

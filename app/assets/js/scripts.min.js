@@ -215,12 +215,11 @@ var $window = $(window),
 			autoplay:1,
 			loop:1,
 			margin:0,
-			// center:true,
 			autoHeight:true,
 			dots:false,
-			// nav:true,
-			navText:['<a href="javascript:;"><span class="carousel-control-prev-icon" aria-hidden="true">&nbsp;</span></a>','<a href="javascript:;"><span class="carousel-control-next-icon" aria-hidden="true">&nbsp;</span></a>'],
-			// lazyLoad:true,
+			nav:false,
+			// navText:['<a href="javascript:;"><span class="carousel-control-prev-icon" aria-hidden="true">&nbsp;</span></a>','<a href="javascript:;"><span class="carousel-control-next-icon" aria-hidden="true">&nbsp;</span></a>'],
+			lazyLoad:false,
 			stagePadding:0,
 			smartSpeed:450
 		});
@@ -259,12 +258,14 @@ var $window = $(window),
 		// Customizing a reveal set
 		sr.reveal('#home', { duration: 800, useDelay: 'always', delay: 120, origin: 'top', reset: false, distance : "-20px"});
 		// sr.reveal('#home-second', { duration: 1000, useDelay: 'always', delay: 140, origin: 'bottom', reset: false, distance : "-60px"});
+		sr.reveal('#home-second', { duration: 800, useDelay: 'always', delay: 380, origin: 'top', reset: false, distance : "-60px"});
 
-		sr.reveal('#boxed-one', { duration: 1200, delay: 300, origin: 'top', reset: false});
-		sr.reveal('#boxed-two', { duration: 1400, delay: 600, origin: 'top', reset: false});
-		sr.reveal('#boxed-three', { duration: 1600, delay: 900, origin: 'top', reset: false});
+		sr.reveal('#boxed-one', { duration: 1000, delay: 100, origin: 'top', reset: false});
+		sr.reveal('#boxed-two', { duration: 1200, delay: 300, origin: 'top', reset: false});
+		sr.reveal('#boxed-three', { duration: 1400, delay: 600, origin: 'top', reset: false});
 
 		// sr.reveal('#home-third', { duration: 1000, useDelay: 'always', delay: 320, origin: 'top', reset: false, distance : "-120px"});
+
 		sr.reveal('#home-fourth', { duration: 1100, useDelay: 'always', delay: 380, origin: 'top', reset: false, distance : "-160px"});
 
 		sr.reveal('#footer', { duration: 1000, useDelay: 'always', delay: 300, origin: 'bottom', reset: false, distance : "-160px"});
