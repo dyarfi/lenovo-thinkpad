@@ -93,7 +93,7 @@ module.exports = function(grunt) {
     connect: {
       options: {
         port: 9992,
-        hostname: '*'
+		hostname: '*'
       },
       livereload: {
         options: {
@@ -294,7 +294,7 @@ module.exports = function(grunt) {
     watch: {
       concat: {
         files: '<%= project.src %>/js/{,*/}*.js',
-        tasks: ['concat:dev', 'jshint']
+        tasks: ['concat:dev'/*, 'jshint'*/]
       },
       // copy: {
       //   images: {

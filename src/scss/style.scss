@@ -301,14 +301,14 @@ $modal-sm:                          300px !default;
 $modal-transition:                  transform .3s ease-out !default;
 
 // Globals
-$enable-caret:              true !default;
-$enable-rounded:            true !default;
-$enable-shadows:            true !default;
+$enable-caret:              false !default;
+$enable-rounded:            false !default;
+$enable-shadows:            false !default;
 $enable-gradients:          false !default;
 $enable-transitions:        true !default;
 $enable-hover-media-query:  true !default;
 $enable-grid-classes:       true !default;
-$enable-print-styles:       true !default;
+$enable-print-styles:       false !default;
 
 // Font Awesome Font Path
 $fa-font-path:                "../../webfonts" !default;
@@ -369,6 +369,9 @@ $body-bg: $black !default;
 body {
   font-family: $font-family-base;
   letter-spacing: 0.1rem;
+}
+a, a:focus {
+	outline: none;
 }
 #wrapper {
 //   max-width: 1920px;
@@ -464,6 +467,9 @@ body {
   // -ms-overflow-style:auto;
   -ms-overflow-style: auto !important;
 }
+// .h-600 {
+	// height: 600px;
+// }
 //----------------------------------*\
 // VENDOR
 //----------------------------------*/
@@ -3827,8 +3833,7 @@ body {
 }
 .scrolldown a span {
   position: absolute;
-  // bottom: 0%;
-  // left: 9%;
+//   z-index: 999;
   width: 22px;
   height: 22px;
   margin-left: -52px;
@@ -3874,27 +3879,33 @@ body {
 @-webkit-keyframes sdb05 {
   0% {
     -webkit-transform: rotate(-45deg) translate(0, 0);
-    opacity: 0;
+	opacity: 0;
+	z-index: 0;
   }
   50% {
-    opacity: 1;
+	opacity: 1;
+	z-index: 500;
   }
   100% {
     -webkit-transform: rotate(-45deg) translate(-14px, 14px);
-    opacity: 0;
+	opacity: 0;
+	z-index: 1000;
   }
 }
 @keyframes sdb05 {
   0% {
     transform: rotate(-45deg) translate(0, 0);
-    opacity: 0;
+	opacity: 0;
+	z-index: 0;
   }
   50% {
-    opacity: 1;
+	opacity: 1;
+	z-index: 500;
   }
   100% {
     transform: rotate(-45deg) translate(-15px, 15px);
-    opacity: 0;
+	opacity: 0;
+	z-index: 1000;
   }
 }
 
@@ -3965,9 +3976,40 @@ blockquote {
 	.text-small {
 		letter-spacing: normal;
 		font-size: .65rem;
-		// font-weight: bold
 	}
 }
+.intl {
+	@include media-breakpoint-down(md) {
+		img {
+			width:60px !important;
+			height:60px !important;
+		}
+	}
+}
+// Intel logo
+.intl-1, .intl-2, .intl-3 {
+	position: absolute;
+	margin: 0;
+	padding-left: 1rem;
+	padding-bottom: 1rem;
+	padding-right: 0;
+	bottom:0px;
+}
+.intl-1 {
+	padding-bottom:1.5rem
+}
+.intl-2 {
+	padding-bottom:4rem
+}
+.intl-3 {
+	padding-bottom:2rem
+}
+// .intl-2 {
+// 	top:-6rem;
+// }
+// .intl-3 {
+// 	top:-6rem;
+// }
 // Button video play
 .btn-video {
   position: absolute;
@@ -3997,6 +4039,30 @@ blockquote {
 }
 .top-min-5 {
 	top:-5.5rem;
+}
+.top-min-2 {
+	top:-2rem;
+}
+.bottom-0 {
+  bottom:0;
+}
+.bottom-24 {
+	bottom: 24px;
+}
+.bottom-40 {
+	bottom:40px;
+}
+.bottom-min-53 {
+	bottom:-53px;
+}
+.top-0 {
+	top:0;
+}
+.z-index-0 {
+	z-index:0;
+}
+.z-index-1 {
+	z-index:1;
 }
 .button-middle-bottom {
   position:absolute;
@@ -4046,18 +4112,21 @@ blockquote {
 }
 .headlineh1-big__mobile {
 	@include media-breakpoint-between(xs,sm) {
-		font-size: 1.75rem
+		font-size: 1.5rem
 	}
 }
 .main-carousel.owl-carousel .owl-item img {
-  width:unset;
-  display:inline;
+	width: auto;
+  	height: auto;
 }
 .main-carousel.owl-carousel .owl-dots {
   counter-reset: dots;
-  position:absolute;
-  top:10%;
-  right:0%;
+  position: relative;
+  top:0%;
+  right:0;
+  left:0;
+  bottom:0;
+  margin-top: 0 !important;
   .owl-dot span:before {
     counter-increment:dots;
     content: counter(dots);
@@ -4067,7 +4136,8 @@ blockquote {
     .owl-dot span {
       width: 28px;
       height: 28px;
-      padding: 3px 0 0 1px;
+	  padding: 3px 0 0 1px;
+	//   margin-top: 0;
       color: $white;
       background: rgba($danger,1);
       border:1px solid rgba(#ec342c,0.9);
@@ -4084,6 +4154,7 @@ blockquote {
 
 // ----- IMAGEHOVER VARIABLES -----//
 /*! Default Setting for ImageHover */
+/*
 [class^='imghvr-'], [class*=' imghvr-'] {
   a {
     position: relative;
@@ -4095,11 +4166,13 @@ blockquote {
     opacity: 0;
   }
 }
+*/
 .middle-holder {
 	@include media-breakpoint-between(sm,md) {
 		height:500px
 	}
 }
+
 .benny-kol {
 	// background: url("../img/kol-home-slider-benny.jpg") top center;
 	// background-color: transparent;
@@ -4144,15 +4217,22 @@ blockquote {
 			height: 255px;
 		}
 	}
-}
-.home-img__holder {
-	// img {
-	// 	// height: 480px;
-	// }
-	// @include media-breakpoint-only(xs) {
-	// }
-
-	.home-img__mobile {
+	@include media-breakpoint-between(md,xl) {
+		background:url('../img/kol-home-slider-benny.jpg');
+		background-color: transparent;
+		background-position:top center;
+		background-repeat:no-repeat;
+		-ms-background-size: cover;
+		-o-background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		background-size: cover;
+		height: 460px;
+		width: calc(var(--breakpoint-xl)) / 2;
+		// height:600px;
+		// width:100%
+	}
+	@include media-breakpoint-between(xs,md) {
 		background:url('../img/kol-home-slider-benny-mb.jpg');
 		background-color: transparent;
 		background-position:center center;
@@ -4166,9 +4246,44 @@ blockquote {
 		width:100%
 	}
 }
+/*
+.home-img__holder {
+	// @include media-breakpoint-only(xs) {
+	// }
+	.home-img__desktop {
+		background:url('../img/kol-home-slider-benny.jpg');
+		background-color: transparent;
+		background-position:top center;
+		background-repeat:no-repeat;
+		-ms-background-size: cover;
+		-o-background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		background-size: cover;
+		height: 460px;
+		width: calc(var(--breakpoint-xl)) / 2;
+		// height:600px;
+		// width:100%
+	}
+	.home-img__mobile {
+		background:url('../img/kol-home-slider-benny-mb.jpg');
+		background-color: transparent;
+		background-position:center center;
+		background-repeat:no-repeat;
+		-ms-background-size: cover;
+		-o-background-size: cover;
+		-moz-background-size: cover;
+		-webkit-background-size: cover;
+		background-size: cover;
+		height:600px;
+		width:100%
+	}
+}*/
+
 /*!
  * Green Background for Image Hover
  */
+ /*
  [class^='green imghvr-'], [class*='green imghvr-']  {
   background-color: $green;
   figcaption {
@@ -4178,11 +4293,12 @@ blockquote {
     background: rgba($green,0.5);
   }
 }
-
+*/
 
 /*!
 * Grey Background for Image Hover
 */
+/*
 [class^='gray imghvr-'], [class*='gray imghvr-']  {
   background-color: $black;
   figcaption {
@@ -4192,7 +4308,7 @@ blockquote {
     background: rgba($black,0.5);
   }
 }
-
+*/
 
 /*!
 * Media Query
@@ -4200,13 +4316,13 @@ blockquote {
 // There are also media queries and mixins for targeting a single segment of screen sizes using the minimum and maximum breakpoint widths.
 // ---- ONLY
 @include media-breakpoint-only(xs) {
-  .main-carousel.owl-carousel {
-    .owl-dots  {
-      top: 19.2%;
-      right: 0%;
-      left: 0;
-    }
-  }
+	// .main-carousel.owl-carousel {
+	// 	.owl-dots  {
+	// 		top: 19.2%;
+	// 		right: 0%;
+	// 		left: 0;
+	// 	}
+	// }
 }
 @include media-breakpoint-only(sm) {}
 @include media-breakpoint-only(md) {
