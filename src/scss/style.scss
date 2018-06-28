@@ -3989,20 +3989,20 @@ blockquote {
 // Intel logo
 .intl-1, .intl-2, .intl-3 {
 	position: absolute;
-	margin: 0;
 	padding-left: 1rem;
-	padding-bottom: 1rem;
+	padding-bottom: 0rem;
 	padding-right: 0;
 	bottom:0px;
 }
 .intl-1 {
-	padding-bottom:1.5rem
+	margin-bottom:2rem;
+	margin-bottom:1rem;
 }
 .intl-2 {
-	padding-bottom:4rem
+	margin-bottom:2rem;
 }
 .intl-3 {
-	padding-bottom:2rem
+	margin-bottom:2rem;
 }
 // .intl-2 {
 // 	top:-6rem;
@@ -4112,12 +4112,18 @@ blockquote {
 }
 .headlineh1-big__mobile {
 	@include media-breakpoint-between(xs,sm) {
-		font-size: 1.5rem
+		font-size: 1.1rem
+	}
+}
+.home-desc {
+	@include media-breakpoint-between(xs,sm) {
+		font-size: 88%;
 	}
 }
 .main-carousel.owl-carousel .owl-item img {
-	width: auto;
-  	height: auto;
+		width: auto;
+	  	height: auto;
+	  	display: inline-block;
 }
 .main-carousel.owl-carousel .owl-dots {
   counter-reset: dots;
@@ -4126,7 +4132,7 @@ blockquote {
   right:0;
   left:0;
   bottom:0;
-  margin-top: 0 !important;
+//   margin-top: 0 !important;
   .owl-dot span:before {
     counter-increment:dots;
     content: counter(dots);
@@ -4190,7 +4196,7 @@ blockquote {
 		position: absolute;
 		@include media-breakpoint-between(xs,sm) {
 			left: 40%;
-			top: 20%;
+			top: 15%;
 		}
 		@include media-breakpoint-only(md) {
 			// left: 40%;
@@ -4199,14 +4205,14 @@ blockquote {
 	}
 	.benny-kol__boxed_one, .benny-kol__boxed_two {
 		@include media-breakpoint-between(xs,sm) {
-			font-size: 0.80rem;
-			line-height: 1.2;
+			font-size: 0.88rem;
+			line-height: 1.4;
 		}
 	}
 	.benny-kol__boxed_one {
 		padding:35px;
 		@include media-breakpoint-between(xs,sm) {
-			padding:15px;
+			padding: 10px 5px 10px 5px;
 			margin-top:.5rem;
 			// margin-left:.5rem;
 		}

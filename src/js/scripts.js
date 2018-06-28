@@ -109,7 +109,7 @@ var $window = $(window),
 		scrollDown : function() {
 			$('.scrolldown a[href*=#]').on('click', function(e) {
 				e.preventDefault();
-				$('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 1000, 'swing');
+				$('html, body').animate({ scrollTop: $($(this).attr('href')).offset().top}, 800, 'swing');
 			});
 			/*
 			// Waypoints Init
@@ -163,7 +163,7 @@ var $window = $(window),
 					mouseDrag:true,
 					touchDrag:false,
 					pullDrag:false,
-					// autoHeight:true,
+					autoHeight:true,
 					// nav:true,
 					// navText:['<span class="text-dark">&laquo; Prev</span>','<span class="text-dark">Next &raquo;</span>'],
 					responsive:true,
@@ -271,7 +271,7 @@ var $window = $(window),
 
 			sr.reveal('#footer', { duration: 1000, useDelay: 'always', delay: 300, origin: 'bottom', reset: false, distance : "-160px"});
 
-			sr.reveal('#trademark', { duration: 1400, delay: 300, origin: 'bottom', reset: false});
+			sr.reveal('#trademark', { duration: 1200, delay: 300, origin: 'bottom', reset: false});
 
 		}
 
