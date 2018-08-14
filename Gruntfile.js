@@ -25,6 +25,7 @@ var mountFolder = function(connect, dir) {
  * Grunt module
  */
 module.exports = function(grunt) {
+	grunt.loadNpmTasks('grunt-wiredep');
 
   /**
    * Dynamically load npm tasks
@@ -35,7 +36,25 @@ module.exports = function(grunt) {
    * FireShell Grunt config
    */
   grunt.initConfig({
+	wiredep: {
 
+		task: {
+
+			// Point to the files that should be updated when
+			// you run `grunt wiredep`
+			src: [
+			'app/*.html',   // .html support...
+			'src/scss/style.scss',  // .scss & .sass support...
+			],
+
+			options: {
+			// See wiredep's configuration documentation for the options
+			// you may pass:
+
+			// https://github.com/taptapship/wiredep#configuration
+			}
+		}
+	},
     pkg: grunt.file.readJSON('package.json'),
 
     /**
@@ -169,7 +188,9 @@ module.exports = function(grunt) {
     sass: {
       dev: {
         options: {
-          style: 'expanded'
+          style: 'expanded',
+		  trace: true,
+		  sourcemap: true
         },
         files: {
           '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
@@ -177,11 +198,20 @@ module.exports = function(grunt) {
       },
       dist: {
         options: {
-          style: 'expanded'
+          style: 'expanded',
         },
         files: {
           '<%= project.assets %>/css/style.unprefixed.css': '<%= project.css %>'
         }
+	  },
+	  server: {
+        files: [{
+          expand: true,
+          cwd: '<%= project.src %>/styles',
+          src: ['*.{scss,sass}'],
+          dest: '.tmp/styles',
+          ext: '.css'
+        }]
       }
     },
 
@@ -280,9 +310,10 @@ module.exports = function(grunt) {
      * https://github.com/jsoverson/grunt-open
      */
     open: {
-      server: {
-        path: 'http://localhost:<%= connect.options.port %>'
-      }
+		server: {
+			path: 'http://localhost:<%= connect.options.port %>',
+			app: 'Google Chrome'
+		}
     },
 
     /**
@@ -309,8 +340,10 @@ module.exports = function(grunt) {
       //   }
       // },
       sass: {
+		sourceMap: true,
         files: '<%= project.src %>/scss/{,*/}*.{scss,sass}',
-        tasks: ['sass:dev', 'cssmin:dev', 'autoprefixer:dev']
+		// tasks: ['sass:dev', 'cssmin:dev', 'autoprefixer:dev']
+		tasks: ['sass:server', 'cssmin:dev', 'autoprefixer:dev']
       },
       livereload: {
         options: {
